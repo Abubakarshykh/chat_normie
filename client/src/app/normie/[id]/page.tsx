@@ -56,21 +56,20 @@ export default function NormiePage() {
         {/* LEFT: Profile */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           {/* Avatar Card */}
-          <div className="glass-card" style={{ padding: '28px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
-            <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: `linear-gradient(90deg, transparent, ${normie.color}, transparent)` }} />
-            <div style={{
-              width: 80, height: 80, borderRadius: '20px', margin: '0 auto 16px',
-              background: `${normie.color}20`, border: `2px solid ${normie.color}50`,
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              fontSize: '40px', boxShadow: `0 0 30px ${normie.color}30`,
-            }}>{normie.avatar}</div>
-            <h1 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '4px' }}>{normie.name}</h1>
-            <div style={{ color: 'var(--text-muted)', fontSize: '0.85rem', fontStyle: 'italic', marginBottom: '12px' }}>{normie.archetype}</div>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '5px 14px', borderRadius: '999px', background: 'rgba(255,255,255,0.04)', border: '1px solid var(--glass-border)', fontSize: '0.82rem', marginBottom: '16px' }}>
-              {MOOD_EMOJI[normie.mood] || '😐'} {normie.mood}
+          <div className="glass-card" style={{ padding: '0', overflow: 'hidden' }}>
+            <img src={normie.nftImage} alt={normie.name} style={{ width: '100%', aspectRatio: '1/1', objectFit: 'cover' }} />
+            <div style={{ padding: '20px' }}>
+              <h1 style={{ fontSize: '1.2rem', fontWeight: 800, marginBottom: '4px' }}>{normie.nftName}</h1>
+              <div style={{ color: 'var(--text-muted)', fontSize: '0.85rem', marginBottom: '16px' }}>{normie.name}</div>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
+                {normie.nftTraits?.map((trait: any) => (
+                  <div key={trait.trait_type} style={{ background: 'rgba(255,255,255,0.05)', padding: '8px', borderRadius: '8px' }}>
+                    <div style={{ fontSize: '0.65rem', textTransform: 'uppercase', color: 'var(--text-muted)' }}>{trait.trait_type}</div>
+                    <div style={{ fontSize: '0.8rem', fontWeight: 600 }}>{trait.value}</div>
+                  </div>
+                ))}
+              </div>
             </div>
-            <div style={{ fontWeight: 800, fontSize: '1.4rem' }} className="gradient-text">{normie.reputation?.toLocaleString()}</div>
-            <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>reputation</div>
           </div>
 
           {/* Backstory */}

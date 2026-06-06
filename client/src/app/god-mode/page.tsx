@@ -102,7 +102,7 @@ export default function GodModePage() {
     <div className="container" style={{ paddingTop: '32px', paddingBottom: '48px' }}>
       <DramaAlert />
       <div className="page-header">
-        <h1>👑 God <span className="gradient-text">Mode</span></h1>
+        <h1>👑 <span className="gradient-text">Normod</span></h1>
         <p>Take control of the simulation. Force interactions, trigger world-altering drama, adjust character moods, and control time itself.</p>
       </div>
 

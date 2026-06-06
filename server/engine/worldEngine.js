@@ -67,14 +67,33 @@ function normieFeedSnapshot(normie) {
  * Fetch NFT metadata + image URL + agent persona for one normie at startup.
  * All data is cached on the normie object — never called again per tick.
  */
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function fetchWithRetry(url, attempts = 5, delayMs = 200) {
+  for (let i = 0; i < attempts; i++) {
+    try {
+      const res = await fetch(url);
+      if (res.ok) return res;
+      // If not OK but not network error, maybe 404 – continue retry
+    } catch (e) {
+      // network error, continue
+    }
+    if (i < attempts - 1) await delay(delayMs);
+  }
+  return null;
+}
+
+// Updated fetchNFTDataForNormie to use fetchWithRetry
 async function fetchNFTDataForNormie(normie) {
   const id = normie.tokenId;
   if (id == null) return;
 
-  // 1. Metadata → nftName + nftTraits
+  // 1. Metadata → nftName + nftTraits with retry
   try {
-    const res = await fetch(`${NFT_API}/normie/${id}/metadata`);
-    if (res.ok) {
+    const res = await fetchWithRetry(`${NFT_API}/normie/${id}/metadata`);
+    if (res && res.ok) {
       const meta = await res.json();
       normie.nftName = meta.name || `Normie #${id}`;
       normie.nftTraits = meta.attributes || [];
@@ -88,13 +107,13 @@ async function fetchNFTDataForNormie(normie) {
     normie.nftTraits = [];
   }
 
-  // 2. Image URL — just store the URL string, never download
+  // 2. Image URL – static, no need to fetch
   normie.imageUrl = `${NFT_API}/normie/${id}/image.png`;
 
-  // 3. Agent persona → agentPersona
+  // 3. Agent persona with retry
   try {
-    const res = await fetch(`${NFT_API}/agents/persona-preview/${id}`);
-    if (res.ok) {
+    const res = await fetchWithRetry(`${NFT_API}/agents/persona-preview/${id}`);
+    if (res && res.ok) {
       normie.agentPersona = await res.json();
     } else {
       normie.agentPersona = null;
@@ -113,16 +132,19 @@ async function fetchNFTDataForNormie(normie) {
  */
 async function fetchWorldSupply() {
   try {
-    const res = await fetch(`${NFT_API}/history/stats`);
-    if (res.ok) {
+    const res = await fetchWithRetry(`${NFT_API}/history/stats`);
+    if (res && res.ok) {
       const data = await res.json();
       totalNormieSupply = 10000 - (data.totalBurnedTokens || 0);
       console.log(`[NFT] World population: ${totalNormieSupply} Normies`);
+    } else {
+      console.warn('[NFT] Supply fetch failed: non‑OK response');
     }
   } catch (e) {
-    console.warn('[NFT] Supply fetch failed:', e.message);
+    console.warn('[NFT] Supply fetch error:', e.message);
   }
 }
+
 
 /**
  * Load normies from JSON file
