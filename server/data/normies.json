@@ -23,14 +23,14 @@
     },
     "memory": {
       "shortTerm": [
+        "Drama: 🤝 Alliance Formed with Kai Lumis",
+        "Drama: ⚔️ Public Fight with Kai Lumis",
         "Nova Silk said: \"My publicist will handle this....\". Replied: \"I'm busy breaking things....\"",
         "Drama: ⚔️ Public Fight with Kai Lumis",
         "Drama: ⚡ Unexpected Team-Up with Sunny Ray",
         "Talked to Pixel: \"I'm busy breaking things....\"",
         "Kai Lumis said: \"Your query is noted....\". Replied: \"...whatever....\"",
-        "Vesper Kane said: \"That's interesting information....\". Replied: \"...whatever....\"",
-        "Drama: ⚔️ Public Fight with Sunny Ray",
-        "Drama: 🔥 Scandal Exposed with Atlas Grey"
+        "Vesper Kane said: \"That's interesting information....\". Replied: \"...whatever....\""
       ],
       "longTerm": [
         "survived the Neon District riots",
@@ -253,9 +253,19 @@
       },
       "n002": {
         "type": "enemy",
-        "score": -100,
-        "interactions": 24,
+        "score": -85,
+        "interactions": 26,
         "history": [
+          {
+            "type": "collaborate",
+            "sentiment": "positive",
+            "timestamp": "2026-06-06T20:55:47.991Z"
+          },
+          {
+            "type": "fight",
+            "sentiment": "negative",
+            "timestamp": "2026-06-06T20:52:47.708Z"
+          },
           {
             "type": "fight",
             "sentiment": "negative",
@@ -295,16 +305,6 @@
             "type": "chat",
             "sentiment": "negative",
             "timestamp": "2026-06-06T13:45:55.554Z"
-          },
-          {
-            "type": "fight",
-            "sentiment": "negative",
-            "timestamp": "2026-06-06T11:59:23.556Z"
-          },
-          {
-            "type": "chat",
-            "sentiment": "negative",
-            "timestamp": "2026-06-06T11:13:38.763Z"
           }
         ]
       },
@@ -537,7 +537,7 @@
         ]
       }
     },
-    "reputation": 567,
+    "reputation": 576,
     "interests": [
       "street racing",
       "underground fights",
@@ -654,14 +654,14 @@
     },
     "memory": {
       "shortTerm": [
+        "Drama: 🤝 Alliance Formed with Zara Vex",
+        "Rico Blaze said: \"Good question — let me think on the ROI....\". Replied: \"Your query is noted....\"",
+        "Drama: ⚔️ Public Fight with Zara Vex",
+        "Talked to Vesper Kane: \"Insufficient data to respond....\"",
         "Drama: ⚔️ Public Fight with Zara Vex",
         "Vesper Kane said: \"I heard you....\". Replied: \"Your query is noted....\"",
         "Luna Drift said: \"The stars are quiet today......\". Replied: \"Your query is noted....\"",
-        "Vesper Kane said: \"I heard you....\". Replied: \"Your query is noted....\"",
-        "Talked to Atlas Grey: \"Insufficient data to respond....\"",
-        "Posted: \"Your query is noted....\"",
-        "Talked to Vesper Kane: \"Insufficient data to respond....\"",
-        "Talked to Zara Vex: \"Your query is noted....\""
+        "Vesper Kane said: \"I heard you....\". Replied: \"Your query is noted....\""
       ],
       "longTerm": [
         "hacked the World Bank at 15 for fun",
@@ -670,10 +670,15 @@
     },
     "relationships": {
       "n006": {
-        "type": "ally",
-        "score": 48,
-        "interactions": 18,
+        "type": "friend",
+        "score": 56,
+        "interactions": 19,
         "history": [
+          {
+            "type": "chat",
+            "sentiment": "positive",
+            "timestamp": "2026-06-06T20:52:03.880Z"
+          },
           {
             "type": "chat",
             "sentiment": "positive",
@@ -718,11 +723,6 @@
             "type": "chat",
             "sentiment": "neutral",
             "timestamp": "2026-06-05T13:12:50.541Z"
-          },
-          {
-            "type": "chat",
-            "sentiment": "neutral",
-            "timestamp": "2026-06-05T12:44:55.510Z"
           }
         ]
       },
@@ -837,9 +837,19 @@
       },
       "n001": {
         "type": "enemy",
-        "score": -100,
-        "interactions": 24,
+        "score": -90,
+        "interactions": 26,
         "history": [
+          {
+            "type": "collaborate",
+            "sentiment": "positive",
+            "timestamp": "2026-06-06T20:55:47.991Z"
+          },
+          {
+            "type": "fight",
+            "sentiment": "negative",
+            "timestamp": "2026-06-06T20:52:47.708Z"
+          },
           {
             "type": "fight",
             "sentiment": "negative",
@@ -879,16 +889,6 @@
             "type": "chat",
             "sentiment": "negative",
             "timestamp": "2026-06-06T13:45:55.554Z"
-          },
-          {
-            "type": "fight",
-            "sentiment": "negative",
-            "timestamp": "2026-06-06T11:59:23.556Z"
-          },
-          {
-            "type": "chat",
-            "sentiment": "negative",
-            "timestamp": "2026-06-06T11:13:38.763Z"
           }
         ]
       },
@@ -1035,9 +1035,14 @@
       },
       "n004": {
         "type": "ally",
-        "score": 38,
-        "interactions": 7,
+        "score": 43,
+        "interactions": 8,
         "history": [
+          {
+            "type": "chat",
+            "sentiment": "positive",
+            "timestamp": "2026-06-06T20:54:18.539Z"
+          },
           {
             "type": "collaborate",
             "sentiment": "positive",
@@ -1133,7 +1138,7 @@
         ]
       }
     },
-    "reputation": 742,
+    "reputation": 741,
     "interests": [
       "cryptography",
       "quantum physics",
@@ -1238,7 +1243,7 @@
       "unpredictable",
       "poetic"
     ],
-    "mood": "hostile",
+    "mood": "annoyed",
     "backstory": "Luna speaks in metaphors and sees patterns others miss. She has an uncanny ability to predict events before they happen. Some think she's gifted; others think she's just weird.",
     "speechStyle": "poetic, uses metaphors, speaks softly but cryptically, asks deep questions, never gives direct answers",
     "stats": {
@@ -1250,14 +1255,14 @@
     },
     "memory": {
       "shortTerm": [
+        "Talked to Atlas Grey: \"The stars are quiet today......\"",
         "Talked to Sunny Ray: \"The stars are quiet today......\"",
         "Posted: \"The stars are quiet today......\"",
         "Sunny Ray said: \"I believe things will work out!...\". Replied: \"The stars are quiet today......\"",
         "Talked to Atlas Grey: \"Ask me again when the moon shifts....\"",
         "Talked to Kai Lumis: \"The stars are quiet today......\"",
         "Talked to Vesper Kane: \"Ask me again when the moon shifts....\"",
-        "Posted: \"The stars are quiet today......\"",
-        "Pixel said: \"ERROR: vibes miscalibrated....\". Replied: \"The stars are quiet today......\""
+        "Posted: \"The stars are quiet today......\""
       ],
       "longTerm": [
         "predicted the great collapse of 2041",
@@ -1267,9 +1272,14 @@
     "relationships": {
       "n010": {
         "type": "neutral",
-        "score": -2,
-        "interactions": 14,
+        "score": 0,
+        "interactions": 15,
         "history": [
+          {
+            "type": "chat",
+            "sentiment": "neutral",
+            "timestamp": "2026-06-06T20:58:03.350Z"
+          },
           {
             "type": "chat",
             "sentiment": "neutral",
@@ -1314,11 +1324,6 @@
             "type": "insult",
             "sentiment": "negative",
             "timestamp": "2026-06-05T11:46:24.213Z"
-          },
-          {
-            "type": "chat",
-            "sentiment": "neutral",
-            "timestamp": "2026-06-05T10:37:48.471Z"
           }
         ]
       },
@@ -1869,7 +1874,7 @@
       "entrepreneurial",
       "ambitious"
     ],
-    "mood": "hostile",
+    "mood": "content",
     "backstory": "Rico has sold everything from digital art to virtual real estate. He's been rich, been broke, and come back richer. His philosophy: every person is an opportunity.",
     "speechStyle": "smooth talker, always selling something, uses business jargon mixed with street talk, fake modest",
     "stats": {
@@ -1881,14 +1886,14 @@
     },
     "memory": {
       "shortTerm": [
+        "Talked to Kai Lumis: \"Good question — let me think on the ROI....\"",
         "Posted: \"Good question — let me think on the ROI....\"",
         "Sunny Ray said: \"Every moment is a fresh start!...\". Replied: \"I'm working on something big....\"",
         "Drama: 🗡️ Betrayal with Sunny Ray",
         "Vesper Kane said: \"......\". Replied: \"Let's circle back on that....\"",
         "Posted: \"Good question — let me think on the ROI....\"",
         "Pixel said: \"ERROR: vibes miscalibrated....\". Replied: \"Good question — let me think on the ROI....\"",
-        "Vesper Kane said: \"......\". Replied: \"Good question — let me think on the ROI....\"",
-        "Talked to Zara Vex: \"Let's circle back on that....\""
+        "Vesper Kane said: \"......\". Replied: \"Good question — let me think on the ROI....\""
       ],
       "longTerm": [
         "made his first million at 18",
@@ -2338,10 +2343,15 @@
         ]
       },
       "n002": {
-        "type": "ally",
-        "score": 44,
-        "interactions": 7,
+        "type": "friend",
+        "score": 52,
+        "interactions": 8,
         "history": [
+          {
+            "type": "chat",
+            "sentiment": "positive",
+            "timestamp": "2026-06-06T20:54:18.539Z"
+          },
           {
             "type": "collaborate",
             "sentiment": "positive",
@@ -2485,7 +2495,7 @@
       "self-aware",
       "existential"
     ],
-    "mood": "furious",
+    "mood": "content",
     "backstory": "Pixel is a Normie who became self-aware mid-simulation and never quite recovered. They question everything, including their own existence, but cope with it through absurd humor.",
     "speechStyle": "random tangents, breaks the fourth wall, mixes internet memes with existential dread, very online",
     "stats": {
@@ -2497,14 +2507,14 @@
     },
     "memory": {
       "shortTerm": [
+        "Talked to Dex Rogue: \"Have you tried turning me off and on again?...\"",
+        "Posted: \"404: mood not found....\"",
         "Posted: \"Have you tried turning me off and on again?...\"",
         "Talked to Vesper Kane: \"Have you tried turning me off and on again?...\"",
         "Atlas Grey said: \"Nothing new under the sun....\". Replied: \"ERROR: vibes miscalibrated....\"",
         "Sunny Ray said: \"I believe things will work out!...\". Replied: \"Have you tried turning me off and on aga...\"",
         "Posted: \"ERROR: vibes miscalibrated....\"",
-        "Zara Vex said: \"I'm busy breaking things....\". Replied: \"404: mood not found....\"",
-        "Talked to Luna Drift: \"ERROR: vibes miscalibrated....\"",
-        "Talked to Vesper Kane: \"404: mood not found....\""
+        "Zara Vex said: \"I'm busy breaking things....\". Replied: \"404: mood not found....\""
       ],
       "longTerm": [
         "the moment of self-awareness (still processing)",
@@ -2514,9 +2524,14 @@
     "relationships": {
       "n008": {
         "type": "friend",
-        "score": 52,
-        "interactions": 18,
+        "score": 60,
+        "interactions": 19,
         "history": [
+          {
+            "type": "chat",
+            "sentiment": "positive",
+            "timestamp": "2026-06-06T20:55:03.668Z"
+          },
           {
             "type": "chat",
             "sentiment": "positive",
@@ -2561,11 +2576,6 @@
             "type": "chat",
             "sentiment": "neutral",
             "timestamp": "2026-06-06T11:03:08.330Z"
-          },
-          {
-            "type": "chat",
-            "sentiment": "neutral",
-            "timestamp": "2026-06-05T22:44:53.295Z"
           }
         ]
       },
@@ -3143,14 +3153,14 @@
     },
     "memory": {
       "shortTerm": [
+        "Kai Lumis said: \"Insufficient data to respond....\". Replied: \"That's interesting information....\"",
         "Posted: \"I heard you....\"",
         "Talked to Dex Rogue: \"I heard you....\"",
         "Pixel said: \"Have you tried turning me off and on again?...\". Replied: \"That's interesting information....\"",
         "Posted: \"That's interesting information....\"",
         "Talked to Kai Lumis: \"I heard you....\"",
         "Talked to Kai Lumis: \"I heard you....\"",
-        "Talked to Rico Blaze: \"......\"",
-        "Luna Drift said: \"Ask me again when the moon shifts....\". Replied: \"I heard you....\""
+        "Talked to Rico Blaze: \"......\""
       ],
       "longTerm": [
         "knows a secret about every Normie",
@@ -3160,9 +3170,14 @@
     "relationships": {
       "n002": {
         "type": "friend",
-        "score": 56,
-        "interactions": 18,
+        "score": 61,
+        "interactions": 19,
         "history": [
+          {
+            "type": "chat",
+            "sentiment": "positive",
+            "timestamp": "2026-06-06T20:52:03.880Z"
+          },
           {
             "type": "chat",
             "sentiment": "positive",
@@ -3207,11 +3222,6 @@
             "type": "chat",
             "sentiment": "neutral",
             "timestamp": "2026-06-05T13:12:50.541Z"
-          },
-          {
-            "type": "chat",
-            "sentiment": "neutral",
-            "timestamp": "2026-06-05T12:44:55.510Z"
           }
         ]
       },
@@ -3789,14 +3799,14 @@
     },
     "memory": {
       "shortTerm": [
+        "Posted: \"I believe things will work out!...\"",
+        "Drama: 💔 Friendship Broken with Atlas Grey",
         "Talked to Nova Silk: \"Every moment is a fresh start!...\"",
         "Luna Drift said: \"The stars are quiet today......\". Replied: \"That's wonderful!...\"",
         "Talked to Luna Drift: \"I believe things will work out!...\"",
         "Talked to Rico Blaze: \"Every moment is a fresh start!...\"",
         "Drama: 🗡️ Betrayal with Rico Blaze",
-        "Talked to Pixel: \"I believe things will work out!...\"",
-        "Drama: ⚡ Unexpected Team-Up with Zara Vex",
-        "Atlas Grey said: \"Nothing new under the sun....\". Replied: \"That's wonderful!...\""
+        "Talked to Pixel: \"I believe things will work out!...\""
       ],
       "longTerm": [
         "was betrayed by a friend and forgave them anyway",
@@ -4090,10 +4100,15 @@
         ]
       },
       "n010": {
-        "type": "ally",
-        "score": 48,
-        "interactions": 18,
+        "type": "crush",
+        "score": 13,
+        "interactions": 19,
         "history": [
+          {
+            "type": "betray",
+            "sentiment": "negative",
+            "timestamp": "2026-06-06T20:53:33.398Z"
+          },
           {
             "type": "chat",
             "sentiment": "positive",
@@ -4138,11 +4153,6 @@
             "type": "chat",
             "sentiment": "neutral",
             "timestamp": "2026-06-06T12:06:09.217Z"
-          },
-          {
-            "type": "chat",
-            "sentiment": "neutral",
-            "timestamp": "2026-06-05T13:29:57.484Z"
           }
         ]
       },
@@ -4318,7 +4328,7 @@
         ]
       }
     },
-    "reputation": 429,
+    "reputation": 419,
     "interests": [
       "community projects",
       "complimenting strangers",
@@ -4435,14 +4445,14 @@
     },
     "memory": {
       "shortTerm": [
+        "Atlas Grey said: \"Nothing new under the sun....\". Replied: \"Burn it down....\"",
+        "Pixel said: \"Have you tried turning me off and on again?...\". Replied: \"Nothing matters anyway....\"",
         "Vesper Kane said: \"I heard you....\". Replied: \"Burn it down....\"",
         "Posted: \"Your systems are all broken....\"",
         "Posted: \"Burn it down....\"",
         "Drama: 🤝 Alliance Formed with Zara Vex",
         "Drama: ⚔️ Public Fight with Zara Vex",
-        "Talked to Luna Drift: \"Nothing matters anyway....\"",
-        "Drama: 🤝 Alliance Formed with Zara Vex",
-        "Talked to Sunny Ray: \"Your systems are all broken....\""
+        "Talked to Luna Drift: \"Nothing matters anyway....\""
       ],
       "longTerm": [
         "blew up a corporate server farm",
@@ -4509,9 +4519,14 @@
       },
       "n005": {
         "type": "friend",
-        "score": 52,
-        "interactions": 18,
+        "score": 57,
+        "interactions": 19,
         "history": [
+          {
+            "type": "chat",
+            "sentiment": "positive",
+            "timestamp": "2026-06-06T20:55:03.668Z"
+          },
           {
             "type": "chat",
             "sentiment": "positive",
@@ -4556,11 +4571,6 @@
             "type": "chat",
             "sentiment": "neutral",
             "timestamp": "2026-06-06T11:03:08.330Z"
-          },
-          {
-            "type": "chat",
-            "sentiment": "neutral",
-            "timestamp": "2026-06-05T22:44:53.295Z"
           }
         ]
       },
@@ -4732,9 +4742,14 @@
       },
       "n010": {
         "type": "enemy",
-        "score": -53,
-        "interactions": 13,
+        "score": -57,
+        "interactions": 14,
         "history": [
+          {
+            "type": "chat",
+            "sentiment": "negative",
+            "timestamp": "2026-06-06T20:57:18.659Z"
+          },
           {
             "type": "fight",
             "sentiment": "negative",
@@ -4779,11 +4794,6 @@
             "type": "chat",
             "sentiment": "neutral",
             "timestamp": "2026-06-05T12:45:40.325Z"
-          },
-          {
-            "type": "betray",
-            "sentiment": "negative",
-            "timestamp": "2026-06-05T11:14:08.681Z"
           }
         ]
       },
@@ -5665,7 +5675,7 @@
       "protective",
       "pragmatic"
     ],
-    "mood": "happy",
+    "mood": "furious",
     "backstory": "Atlas has seen everything. Every war, every scandal, every rise and fall. He's not impressed by much anymore, but he still shows up — because someone has to keep things from falling apart completely.",
     "speechStyle": "slow and measured, uses war/survival metaphors, heavy sighs implied, occasional dark wisdom",
     "stats": {
@@ -5677,14 +5687,14 @@
     },
     "memory": {
       "shortTerm": [
+        "Luna Drift said: \"The stars are quiet today......\". Replied: \"Nothing new under the sun....\"",
+        "Talked to Dex Rogue: \"Nothing new under the sun....\"",
+        "Drama: 💔 Friendship Broken with Sunny Ray",
         "Luna Drift said: \"Ask me again when the moon shifts....\". Replied: \"Give it time....\"",
         "Talked to Pixel: \"Nothing new under the sun....\"",
         "Talked to Nova Silk: \"Nothing new under the sun....\"",
         "Kai Lumis said: \"Insufficient data to respond....\". Replied: \"Give it time....\"",
-        "Talked to Sunny Ray: \"Nothing new under the sun....\"",
-        "Talked to Luna Drift: \"Give it time....\"",
-        "Posted: \"Give it time....\"",
-        "Drama: 🔥 Scandal Exposed with Zara Vex"
+        "Talked to Sunny Ray: \"Nothing new under the sun....\""
       ],
       "longTerm": [
         "fought in the first Normie civil war",
@@ -5694,9 +5704,14 @@
     "relationships": {
       "n003": {
         "type": "neutral",
-        "score": 7,
-        "interactions": 14,
+        "score": 8,
+        "interactions": 15,
         "history": [
+          {
+            "type": "chat",
+            "sentiment": "neutral",
+            "timestamp": "2026-06-06T20:58:03.350Z"
+          },
           {
             "type": "chat",
             "sentiment": "neutral",
@@ -5741,11 +5756,6 @@
             "type": "insult",
             "sentiment": "negative",
             "timestamp": "2026-06-05T11:46:24.213Z"
-          },
-          {
-            "type": "chat",
-            "sentiment": "neutral",
-            "timestamp": "2026-06-05T10:37:48.471Z"
           }
         ]
       },
@@ -5921,10 +5931,15 @@
         ]
       },
       "n007": {
-        "type": "mentor",
-        "score": 56,
-        "interactions": 18,
+        "type": "ally",
+        "score": 31,
+        "interactions": 19,
         "history": [
+          {
+            "type": "betray",
+            "sentiment": "negative",
+            "timestamp": "2026-06-06T20:53:33.398Z"
+          },
           {
             "type": "chat",
             "sentiment": "positive",
@@ -5969,11 +5984,6 @@
             "type": "chat",
             "sentiment": "neutral",
             "timestamp": "2026-06-06T12:06:09.217Z"
-          },
-          {
-            "type": "chat",
-            "sentiment": "neutral",
-            "timestamp": "2026-06-05T13:29:57.484Z"
           }
         ]
       },
@@ -6036,9 +6046,14 @@
       },
       "n008": {
         "type": "enemy",
-        "score": -77,
-        "interactions": 13,
+        "score": -82,
+        "interactions": 14,
         "history": [
+          {
+            "type": "chat",
+            "sentiment": "negative",
+            "timestamp": "2026-06-06T20:57:18.659Z"
+          },
           {
             "type": "fight",
             "sentiment": "negative",
@@ -6083,11 +6098,6 @@
             "type": "chat",
             "sentiment": "neutral",
             "timestamp": "2026-06-05T12:45:40.325Z"
-          },
-          {
-            "type": "betray",
-            "sentiment": "negative",
-            "timestamp": "2026-06-05T11:14:08.681Z"
           }
         ]
       },
@@ -6206,7 +6216,7 @@
         ]
       }
     },
-    "reputation": 844,
+    "reputation": 838,
     "interests": [
       "peace",
       "mentoring",
