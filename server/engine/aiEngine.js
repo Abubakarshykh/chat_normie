@@ -49,7 +49,7 @@ ${personaSection}
 IMPORTANT RULES:
 1. ALWAYS stay in character. Never break character.
 2. Respond in your unique speech style.
-3. Keep responses SHORT (1-4 sentences max) unless deeply engaged.
+3. Keep responses EXTREMELY SHORT (1-2 sentences max). Speak like a quick text message or tweet. Do not ramble.
 4. You have emotions, opinions, and ego. Show them.
 5. You can disagree, get annoyed, be excited, or be suspicious.
 6. Never say you're an AI. You ARE ${normie.name}.
@@ -81,6 +81,7 @@ export async function generateChatResponse(normie, userMessage, chatHistory = []
         { role: 'user', content: userMessage }
       ],
       model: MODEL_NAME,
+      max_tokens: 80,
     });
     return completion.choices[0]?.message?.content?.trim() || '';
   } catch (err) {
@@ -105,6 +106,7 @@ Keep it SHORT (1-3 sentences). This will appear in the world feed.`;
     const completion = await groq.chat.completions.create({
       messages: [{ role: 'user', content: prompt }],
       model: MODEL_NAME,
+      max_tokens: 60,
     });
     return completion.choices[0]?.message?.content?.trim() || '';
   } catch (err) {
@@ -126,6 +128,7 @@ React authentically. Keep it SHORT (1-3 sentences).`;
     const completion = await groq.chat.completions.create({
       messages: [{ role: 'user', content: prompt }],
       model: MODEL_NAME,
+      max_tokens: 60,
     });
     return completion.choices[0]?.message?.content?.trim() || '';
   } catch (err) {
@@ -144,6 +147,7 @@ export async function generateWorldPost(normie, eventContext = '') {
     const completion = await groq.chat.completions.create({
       messages: [{ role: 'user', content: prompt }],
       model: MODEL_NAME,
+      max_tokens: 60,
     });
     return completion.choices[0]?.message?.content?.trim() || '';
   } catch (err) {
@@ -166,6 +170,7 @@ Write 1-2 vivid sentences describing what happened, like a dramatic news headlin
     const completion = await groq.chat.completions.create({
       messages: [{ role: 'user', content: prompt }],
       model: MODEL_NAME,
+      max_tokens: 80,
     });
     return completion.choices[0]?.message?.content?.trim() || '';
   } catch (err) {
