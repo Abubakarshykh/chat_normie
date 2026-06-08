@@ -6,7 +6,7 @@ import { useWorldStore } from '@/store/useWorldStore';
 const NAV_LINKS = [
   { href: '/', label: '🌍 World Feed' },
   { href: '/world', label: '🗺️ Overview' },
-  { href: '/god-mode', label: '👑 God Mode' },
+  { href: '/normode', label: '👑 Normode' },
 ];
 
 export default function Navbar() {

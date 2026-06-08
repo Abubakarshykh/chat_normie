@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react';
 import { io, Socket } from 'socket.io-client';
 import { useWorldStore } from '@/store/useWorldStore';
 
-const SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3001';
+const BASE_URL = (process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3001').replace(/\/$/, '');
 
 let socket: Socket | null = null;
 
@@ -15,7 +15,7 @@ export function useSocket() {
     if (initialized.current) return;
     initialized.current = true;
 
-    socket = io(SERVER_URL, { transports: ['websocket', 'polling'] });
+    socket = io(BASE_URL, { transports: ['websocket', 'polling'] });
 
     socket.on('connect', () => {
       console.log('[Socket] Connected');
