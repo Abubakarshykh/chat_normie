@@ -1,9 +1,9 @@
-import { GoogleGenerativeAI } from '@google/generative-ai';
+import Groq from 'groq-sdk';
 import dotenv from 'dotenv';
 dotenv.config();
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
+const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
+const MODEL_NAME = 'llama-3.3-70b-versatile';
 
 /**
  * Build the on-chain persona section from agentPersona (if available)
@@ -70,13 +70,19 @@ export async function generateChatResponse(normie, userMessage, chatHistory = []
     const systemPrompt = buildSystemPrompt(normie, context);
 
     const history = chatHistory.slice(-8).map(msg => ({
-      role: msg.role === 'user' ? 'user' : 'model',
-      parts: [{ text: msg.content }]
+      role: msg.role === 'user' ? 'user' : 'assistant',
+      content: msg.content
     }));
 
-    const chat = model.startChat({ history, systemInstruction: systemPrompt });
-    const result = await chat.sendMessage(userMessage);
-    return result.response.text().trim();
+    const completion = await groq.chat.completions.create({
+      messages: [
+        { role: 'system', content: systemPrompt },
+        ...history,
+        { role: 'user', content: userMessage }
+      ],
+      model: MODEL_NAME,
+    });
+    return completion.choices[0]?.message?.content?.trim() || '';
   } catch (err) {
     console.error('[AI] Chat error:', err.message);
     return getOfflineResponse(normie);
@@ -96,8 +102,11 @@ Start or continue a conversation. Be natural, dramatic, or provocative depending
 Keep it SHORT (1-3 sentences). This will appear in the world feed.`;
 
     const prompt = `${buildSystemPrompt(sender, context)}\n\nSay something to ${receiver.name}:`;
-    const result = await model.generateContent(prompt);
-    return result.response.text().trim();
+    const completion = await groq.chat.completions.create({
+      messages: [{ role: 'user', content: prompt }],
+      model: MODEL_NAME,
+    });
+    return completion.choices[0]?.message?.content?.trim() || '';
   } catch (err) {
     console.error('[AI] N2N message error:', err.message);
     return getOfflineResponse(sender);
@@ -114,8 +123,11 @@ Your relationship with them: ${relationshipType}.
 React authentically. Keep it SHORT (1-3 sentences).`;
 
     const prompt = `${buildSystemPrompt(receiver, context)}\n\nYour reply to ${sender.name}:`;
-    const result = await model.generateContent(prompt);
-    return result.response.text().trim();
+    const completion = await groq.chat.completions.create({
+      messages: [{ role: 'user', content: prompt }],
+      model: MODEL_NAME,
+    });
+    return completion.choices[0]?.message?.content?.trim() || '';
   } catch (err) {
     console.error('[AI] Reply error:', err.message);
     return getOfflineResponse(receiver);
@@ -129,8 +141,11 @@ export async function generateWorldPost(normie, eventContext = '') {
   try {
     const context = eventContext || `Something happened in the world that you have feelings about. Post your reaction.`;
     const prompt = `${buildSystemPrompt(normie, context)}\n\nPost to the world feed (1-2 sentences, in your voice):`;
-    const result = await model.generateContent(prompt);
-    return result.response.text().trim();
+    const completion = await groq.chat.completions.create({
+      messages: [{ role: 'user', content: prompt }],
+      model: MODEL_NAME,
+    });
+    return completion.choices[0]?.message?.content?.trim() || '';
   } catch (err) {
     console.error('[AI] World post error:', err.message);
     return getOfflineResponse(normie);
@@ -148,8 +163,11 @@ and ${normie2.name} (${normie2.archetype}, traits: ${normie2.traits.join(', ')})
 Drama type: ${dramaType}
 Write 1-2 vivid sentences describing what happened, like a dramatic news headline. Be specific and entertaining.`;
 
-    const result = await model.generateContent(prompt);
-    return result.response.text().trim();
+    const completion = await groq.chat.completions.create({
+      messages: [{ role: 'user', content: prompt }],
+      model: MODEL_NAME,
+    });
+    return completion.choices[0]?.message?.content?.trim() || '';
   } catch (err) {
     console.error('[AI] Drama event error:', err.message);
     return `${normie1.name} and ${normie2.name} had a ${dramaType} in the simulation!`;
