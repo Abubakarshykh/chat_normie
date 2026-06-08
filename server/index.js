@@ -17,18 +17,15 @@ const CLIENT_URL = process.env.CLIENT_URL || 'http://localhost:3002';
 const PORT = process.env.PORT || 3001;
 
 // ── Middleware ──────────────────────────────────────────────────────────────
-const allowedOrigins = [
-  'http://localhost:3000',
-  'http://localhost:3003',
-  'https://client-production-393a.up.railway.app',
-  process.env.CLIENT_URL
-].filter(Boolean);
-app.use(cors({ origin: allowedOrigins, credentials: true }));
+app.use(cors({
+  origin: '*',
+  credentials: false
+}));
 app.use(express.json());
 
 // ── Socket.io ───────────────────────────────────────────────────────────────
 const io = new Server(httpServer, {
-  cors: { origin: allowedOrigins, methods: ['GET', 'POST'], credentials: true },
+  cors: { origin: '*', methods: ['GET', 'POST'], credentials: false },
 });
 
 io.on('connection', (socket) => {

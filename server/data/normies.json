@@ -654,14 +654,14 @@
     },
     "memory": {
       "shortTerm": [
+        "Nova Silk said: \"Ugh, NOT the time....\". Replied: \"I'll calculate a response later....\"",
         "Vesper Kane said: \"......\". Replied: \"Insufficient data to respond....\"",
         "Drama: 💥 Rivalry Escalated with Luna Drift",
         "Talked to Rico Blaze: \"Insufficient data to respond....\"",
         "Talked to Vesper Kane: \"Insufficient data to respond....\"",
         "Talked to Sunny Ray: \"Your query is noted....\"",
         "Zara Vex said: \"Not now....\". Replied: \"I'll calculate a response later....\"",
-        "Dex Rogue said: \"Nothing matters anyway....\". Replied: \"Insufficient data to respond....\"",
-        "Rico Blaze said: \"I'm working on something big....\". Replied: \"Insufficient data to respond....\""
+        "Dex Rogue said: \"Nothing matters anyway....\". Replied: \"Insufficient data to respond....\""
       ],
       "longTerm": [
         "hacked the World Bank at 15 for fun",
@@ -956,9 +956,14 @@
       },
       "n009": {
         "type": "neutral",
-        "score": 6,
-        "interactions": 4,
+        "score": 7,
+        "interactions": 5,
         "history": [
+          {
+            "type": "chat",
+            "sentiment": "neutral",
+            "timestamp": "2026-06-08T19:15:48.838Z"
+          },
           {
             "type": "chat",
             "sentiment": "neutral",
@@ -1901,14 +1906,14 @@
     },
     "memory": {
       "shortTerm": [
+        "Posted: \"I'm working on something big....\"",
         "Atlas Grey said: \"Nothing new under the sun....\". Replied: \"Good question — let me think on the ROI....\"",
         "Kai Lumis said: \"Insufficient data to respond....\". Replied: \"Good question — let me think on the ROI....\"",
         "Talked to Kai Lumis: \"I'm working on something big....\"",
         "Talked to Luna Drift: \"Let's circle back on that....\"",
         "Talked to Atlas Grey: \"Good question — let me think on the ROI....\"",
         "Vesper Kane said: \"I heard you....\". Replied: \"I'm working on something big....\"",
-        "Zara Vex said: \"...whatever....\". Replied: \"I'm working on something big....\"",
-        "Luna Drift said: \"Some things resist words....\". Replied: \"Good question — let me think on the ROI....\""
+        "Zara Vex said: \"...whatever....\". Replied: \"I'm working on something big....\""
       ],
       "longTerm": [
         "made his first million at 18",
@@ -2532,14 +2537,14 @@
     },
     "memory": {
       "shortTerm": [
+        "Drama: ⚡ Unexpected Team-Up with Nova Silk",
         "Sunny Ray said: \"That's wonderful!...\". Replied: \"Have you tried turning me off and on aga...\"",
         "Nova Silk said: \"My publicist will handle this....\". Replied: \"ERROR: vibes miscalibrated....\"",
         "Drama: 💥 Rivalry Escalated with Atlas Grey",
         "Talked to Vesper Kane: \"ERROR: vibes miscalibrated....\"",
         "Luna Drift said: \"Ask me again when the moon shifts....\". Replied: \"404: mood not found....\"",
         "Talked to Atlas Grey: \"Have you tried turning me off and on again?...\"",
-        "Posted: \"ERROR: vibes miscalibrated....\"",
-        "Posted: \"404: mood not found....\""
+        "Posted: \"ERROR: vibes miscalibrated....\""
       ],
       "longTerm": [
         "the moment of self-awareness (still processing)",
@@ -2891,9 +2896,14 @@
       },
       "n009": {
         "type": "enemy",
-        "score": -98,
-        "interactions": 46,
+        "score": -88,
+        "interactions": 47,
         "history": [
+          {
+            "type": "collaborate",
+            "sentiment": "positive",
+            "timestamp": "2026-06-08T19:14:19.166Z"
+          },
           {
             "type": "chat",
             "sentiment": "negative",
@@ -2938,11 +2948,6 @@
             "type": "collaborate",
             "sentiment": "positive",
             "timestamp": "2026-06-06T12:36:09.097Z"
-          },
-          {
-            "type": "chat",
-            "sentiment": "negative",
-            "timestamp": "2026-06-06T12:29:24.150Z"
           }
         ]
       },
@@ -3061,7 +3066,7 @@
         ]
       }
     },
-    "reputation": 518,
+    "reputation": 527,
     "interests": [
       "memes",
       "philosophy",
@@ -3166,7 +3171,7 @@
       "cold",
       "strategic"
     ],
-    "mood": "happy",
+    "mood": "content",
     "backstory": "Vesper works in the background — always watching, never acting without purpose. No one knows exactly what Vesper wants, which is exactly how Vesper likes it.",
     "speechStyle": "minimal words, every sentence has double meaning, speaks in hypotheticals, chilling calmness",
     "stats": {
@@ -3178,14 +3183,14 @@
     },
     "memory": {
       "shortTerm": [
+        "Talked to Atlas Grey: \"......\"",
+        "Talked to Atlas Grey: \"......\"",
         "Talked to Kai Lumis: \"......\"",
         "Posted: \"That's interesting information....\"",
         "Kai Lumis said: \"Insufficient data to respond....\". Replied: \"That's interesting information....\"",
         "Pixel said: \"ERROR: vibes miscalibrated....\". Replied: \"That's interesting information....\"",
         "Atlas Grey said: \"Give it time....\". Replied: \"That's interesting information....\"",
-        "Talked to Zara Vex: \"......\"",
-        "Posted: \"......\"",
-        "Sunny Ray said: \"I believe things will work out!...\". Replied: \"That's interesting information....\""
+        "Talked to Zara Vex: \"......\""
       ],
       "longTerm": [
         "knows a secret about every Normie",
@@ -3251,10 +3256,20 @@
         ]
       },
       "n010": {
-        "type": "crush",
-        "score": 28,
-        "interactions": 15,
+        "type": "ally",
+        "score": 44,
+        "interactions": 17,
         "history": [
+          {
+            "type": "chat",
+            "sentiment": "positive",
+            "timestamp": "2026-06-08T19:13:34.078Z"
+          },
+          {
+            "type": "chat",
+            "sentiment": "positive",
+            "timestamp": "2026-06-08T19:12:48.915Z"
+          },
           {
             "type": "chat",
             "sentiment": "positive",
@@ -3294,16 +3309,6 @@
             "type": "chat",
             "sentiment": "neutral",
             "timestamp": "2026-06-05T11:37:24.627Z"
-          },
-          {
-            "type": "chat",
-            "sentiment": "neutral",
-            "timestamp": "2026-06-05T11:16:24.566Z"
-          },
-          {
-            "type": "chat",
-            "sentiment": "neutral",
-            "timestamp": "2026-06-03T21:46:18.562Z"
           }
         ]
       },
@@ -5089,7 +5094,7 @@
       "dramatic",
       "secretly insecure"
     ],
-    "mood": "furious",
+    "mood": "neutral",
     "backstory": "Nova is the most famous Normie in the simulation — and works hard to stay that way. The drama around Nova is usually self-generated. Underneath the glam is someone terrified of being ordinary.",
     "speechStyle": "dramatic, name-drops, speaks in third person occasionally, acts offended easily, loves compliments",
     "stats": {
@@ -5101,14 +5106,14 @@
     },
     "memory": {
       "shortTerm": [
+        "Talked to Kai Lumis: \"Ugh, NOT the time....\"",
+        "Drama: ⚡ Unexpected Team-Up with Pixel",
         "Talked to Pixel: \"My publicist will handle this....\"",
         "Sunny Ray said: \"Every moment is a fresh start!...\". Replied: \"My publicist will handle this....\"",
         "Posted: \"Ugh, NOT the time....\"",
         "Talked to Atlas Grey: \"Ugh, NOT the time....\"",
         "Luna Drift said: \"Ask me again when the moon shifts....\". Replied: \"Ugh, NOT the time....\"",
-        "Pixel said: \"404: mood not found....\". Replied: \"Ugh, NOT the time....\"",
-        "Drama: 👀 Secret Revealed with Rico Blaze",
-        "Posted: \"My publicist will handle this....\""
+        "Pixel said: \"404: mood not found....\". Replied: \"Ugh, NOT the time....\""
       ],
       "longTerm": [
         "won the World Simulation Fame Awards 3 times",
@@ -5517,9 +5522,14 @@
       },
       "n005": {
         "type": "enemy",
-        "score": -100,
-        "interactions": 46,
+        "score": -85,
+        "interactions": 47,
         "history": [
+          {
+            "type": "collaborate",
+            "sentiment": "positive",
+            "timestamp": "2026-06-08T19:14:19.166Z"
+          },
           {
             "type": "chat",
             "sentiment": "negative",
@@ -5564,19 +5574,19 @@
             "type": "collaborate",
             "sentiment": "positive",
             "timestamp": "2026-06-06T12:36:09.097Z"
-          },
-          {
-            "type": "chat",
-            "sentiment": "negative",
-            "timestamp": "2026-06-06T12:29:24.150Z"
           }
         ]
       },
       "n002": {
         "type": "neutral",
-        "score": 6,
-        "interactions": 4,
+        "score": 8,
+        "interactions": 5,
         "history": [
+          {
+            "type": "chat",
+            "sentiment": "neutral",
+            "timestamp": "2026-06-08T19:15:48.838Z"
+          },
           {
             "type": "chat",
             "sentiment": "neutral",
@@ -5600,7 +5610,7 @@
         ]
       }
     },
-    "reputation": 837,
+    "reputation": 852,
     "interests": [
       "fame",
       "fashion",
@@ -5717,14 +5727,14 @@
     },
     "memory": {
       "shortTerm": [
+        "Vesper Kane said: \"......\". Replied: \"Nothing new under the sun....\"",
+        "Vesper Kane said: \"......\". Replied: \"I've seen worse....\"",
         "Talked to Rico Blaze: \"Nothing new under the sun....\"",
         "Drama: 💥 Rivalry Escalated with Pixel",
         "Talked to Vesper Kane: \"Give it time....\"",
         "Pixel said: \"Have you tried turning me off and on again?...\". Replied: \"Give it time....\"",
         "Rico Blaze said: \"Good question — let me think on the ROI....\". Replied: \"Nothing new under the sun....\"",
-        "Nova Silk said: \"Ugh, NOT the time....\". Replied: \"Give it time....\"",
-        "Kai Lumis said: \"Your query is noted....\". Replied: \"Give it time....\"",
-        "Talked to Nova Silk: \"I've seen worse....\""
+        "Nova Silk said: \"Ugh, NOT the time....\". Replied: \"Give it time....\""
       ],
       "longTerm": [
         "fought in the first Normie civil war",
@@ -5847,10 +5857,20 @@
         ]
       },
       "n006": {
-        "type": "ally",
-        "score": 37,
-        "interactions": 15,
+        "type": "mentor",
+        "score": 47,
+        "interactions": 17,
         "history": [
+          {
+            "type": "chat",
+            "sentiment": "positive",
+            "timestamp": "2026-06-08T19:13:34.078Z"
+          },
+          {
+            "type": "chat",
+            "sentiment": "positive",
+            "timestamp": "2026-06-08T19:12:48.915Z"
+          },
           {
             "type": "chat",
             "sentiment": "positive",
@@ -5890,16 +5910,6 @@
             "type": "chat",
             "sentiment": "neutral",
             "timestamp": "2026-06-05T11:37:24.627Z"
-          },
-          {
-            "type": "chat",
-            "sentiment": "neutral",
-            "timestamp": "2026-06-05T11:16:24.566Z"
-          },
-          {
-            "type": "chat",
-            "sentiment": "neutral",
-            "timestamp": "2026-06-03T21:46:18.562Z"
           }
         ]
       },
