@@ -71,14 +71,16 @@ function delay(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-async function fetchWithRetry(url, attempts = 5, delayMs = 200) {
+async function fetchWithRetry(url, attempts = 5, delayMs = 200, timeoutMs = 3000) {
   for (let i = 0; i < attempts; i++) {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
     try {
-      const res = await fetch(url);
+      const res = await fetch(url, { signal: controller.signal });
+      clearTimeout(timeoutId);
       if (res.ok) return res;
-      // If not OK but not network error, maybe 404 – continue retry
     } catch (e) {
-      // network error, continue
+      clearTimeout(timeoutId);
     }
     if (i < attempts - 1) await delay(delayMs);
   }
@@ -296,18 +298,24 @@ export async function startSimulation(socketIO) {
     } catch {}
   }
 
-  // Fetch live world population supply
-  await fetchWorldSupply();
+  // Fetch live world population supply in the background
+  fetchWorldSupply().catch(e => console.warn('[NFT] Supply fetch error:', e.message));
   // Refresh supply once every hour
   setInterval(fetchWorldSupply, 60 * 60 * 1000);
 
-  // Fetch NFT data for all 10 normies at startup (20 total requests — well within 60 req/min)
-  console.log('[NFT] Fetching NFT data for all Normies...');
-  for (const normie of normies) {
-    await fetchNFTDataForNormie(normie);
-    await new Promise(r => setTimeout(r, 300)); // polite delay between normies
-  }
-  console.log('[NFT] All Normie NFT data loaded and cached.');
+  // Fetch NFT data for all 10 normies at startup in the background (non-blocking)
+  (async () => {
+    console.log('[NFT] Fetching NFT data for all Normies in the background...');
+    for (const normie of normies) {
+      try {
+        await fetchNFTDataForNormie(normie);
+      } catch (e) {
+        console.warn(`[NFT] Error fetching data for ${normie.name}:`, e.message);
+      }
+      await new Promise(r => setTimeout(r, 300)); // polite delay between normies
+    }
+    console.log('[NFT] All Normie NFT data loaded and cached.');
+  })();
 
   const interval = parseInt(process.env.SIMULATION_INTERVAL_MS || '600000');
   console.log(`[World] Starting simulation — tick every ${interval / 1000}s`);

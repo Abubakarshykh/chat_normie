@@ -3,6 +3,7 @@ const BASE_URL = (process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3001')
 async function apiFetch<T>(path: string, options?: RequestInit): Promise<T> {
   const res = await fetch(`${BASE_URL}${path}`, {
     headers: { 'Content-Type': 'application/json' },
+    cache: 'no-store',
     ...options,
   });
   if (!res.ok) {

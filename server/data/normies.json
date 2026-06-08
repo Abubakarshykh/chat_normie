@@ -23,14 +23,14 @@
     },
     "memory": {
       "shortTerm": [
+        "Kai Lumis said: \"Zara, your impulsive nature is as predictable as it is tedio...\". Replied: \"\"Spare me the psychoanalysis, Kai. My em...\"",
         "Posted: \"I'm busy breaking things....\"",
         "Drama: ⚔️ Public Fight with Sunny Ray",
         "Drama: 🔥 Scandal Exposed with Kai Lumis",
         "Talked to Rico Blaze: \"I'm busy breaking things....\"",
         "Drama: 🗡️ Betrayal with Kai Lumis",
         "Talked to Pixel: \"...whatever....\"",
-        "Talked to Pixel: \"...whatever....\"",
-        "Drama: ⚔️ Public Fight with Kai Lumis"
+        "Talked to Pixel: \"...whatever....\""
       ],
       "longTerm": [
         "survived the Neon District riots",
@@ -254,8 +254,13 @@
       "n002": {
         "type": "enemy",
         "score": -100,
-        "interactions": 30,
+        "interactions": 31,
         "history": [
+          {
+            "type": "chat",
+            "sentiment": "negative",
+            "timestamp": "2026-06-08T20:43:18.619Z"
+          },
           {
             "type": "betray",
             "sentiment": "negative",
@@ -300,11 +305,6 @@
             "type": "compliment",
             "sentiment": "positive",
             "timestamp": "2026-06-06T19:47:32.523Z"
-          },
-          {
-            "type": "betray",
-            "sentiment": "negative",
-            "timestamp": "2026-06-06T19:41:32.028Z"
           }
         ]
       },
@@ -642,7 +642,7 @@
       "introverted",
       "innovative"
     ],
-    "mood": "neutral",
+    "mood": "furious",
     "backstory": "Kai built his first AI at age 12 in a basement. Now he's the smartest person in any room — and he knows it. He treats social interaction like a puzzle he's already solved.",
     "speechStyle": "precise, uses big words, condescending but not cruel, loves dropping random facts, dry humor",
     "stats": {
@@ -654,14 +654,14 @@
     },
     "memory": {
       "shortTerm": [
+        "Luna Drift said: \"Kai Lumis, the shadows have been whispering your name, and I...\". Replied: \"Luna, your mysticism is as tedious as it...\"",
+        "Talked to Zara Vex: \"Zara, your impulsive nature is as predictable as it is tedio...\"",
         "Talked to Nova Silk: \"Your query is noted....\"",
         "Posted: \"Insufficient data to respond....\"",
         "Talked to Nova Silk: \"Insufficient data to respond....\"",
         "Drama: 🔥 Scandal Exposed with Zara Vex",
         "Drama: 🗡️ Betrayal with Zara Vex",
-        "Talked to Vesper Kane: \"Your query is noted....\"",
-        "Talked to Rico Blaze: \"Insufficient data to respond....\"",
-        "Drama: ⚔️ Public Fight with Zara Vex"
+        "Talked to Vesper Kane: \"Your query is noted....\""
       ],
       "longTerm": [
         "hacked the World Bank at 15 for fun",
@@ -728,9 +728,14 @@
       },
       "n003": {
         "type": "enemy",
-        "score": -53,
-        "interactions": 30,
+        "score": -57,
+        "interactions": 31,
         "history": [
+          {
+            "type": "chat",
+            "sentiment": "negative",
+            "timestamp": "2026-06-08T21:03:14.685Z"
+          },
           {
             "type": "chat",
             "sentiment": "negative",
@@ -775,11 +780,6 @@
             "type": "chat",
             "sentiment": "neutral",
             "timestamp": "2026-06-06T14:43:44.808Z"
-          },
-          {
-            "type": "chat",
-            "sentiment": "negative",
-            "timestamp": "2026-06-06T11:56:23.938Z"
           }
         ]
       },
@@ -843,8 +843,13 @@
       "n001": {
         "type": "enemy",
         "score": -100,
-        "interactions": 30,
+        "interactions": 31,
         "history": [
+          {
+            "type": "chat",
+            "sentiment": "negative",
+            "timestamp": "2026-06-08T20:43:18.619Z"
+          },
           {
             "type": "betray",
             "sentiment": "negative",
@@ -889,11 +894,6 @@
             "type": "compliment",
             "sentiment": "positive",
             "timestamp": "2026-06-06T19:47:32.523Z"
-          },
-          {
-            "type": "betray",
-            "sentiment": "negative",
-            "timestamp": "2026-06-06T19:41:32.028Z"
           }
         ]
       },
@@ -1278,7 +1278,7 @@
       "unpredictable",
       "poetic"
     ],
-    "mood": "furious",
+    "mood": "happy",
     "backstory": "Luna speaks in metaphors and sees patterns others miss. She has an uncanny ability to predict events before they happen. Some think she's gifted; others think she's just weird.",
     "speechStyle": "poetic, uses metaphors, speaks softly but cryptically, asks deep questions, never gives direct answers",
     "stats": {
@@ -1290,14 +1290,14 @@
     },
     "memory": {
       "shortTerm": [
+        "Talked to Pixel: \"Pixel, my friend, I've been sensing a ripple in the fabric o...\"",
+        "Talked to Kai Lumis: \"Kai Lumis, the shadows have been whispering your name, and I...\"",
         "Talked to Rico Blaze: \"Ask me again when the moon shifts....\"",
         "Posted: \"The stars are quiet today......\"",
         "Talked to Pixel: \"The stars are quiet today......\"",
         "Talked to Rico Blaze: \"Ask me again when the moon shifts....\"",
         "Talked to Kai Lumis: \"The stars are quiet today......\"",
-        "Posted: \"The stars are quiet today......\"",
-        "Atlas Grey said: \"Nothing new under the sun....\". Replied: \"Some things resist words....\"",
-        "Drama: 💥 Rivalry Escalated with Kai Lumis"
+        "Posted: \"The stars are quiet today......\""
       ],
       "longTerm": [
         "predicted the great collapse of 2041",
@@ -1421,9 +1421,14 @@
       },
       "n002": {
         "type": "enemy",
-        "score": -81,
-        "interactions": 30,
+        "score": -86,
+        "interactions": 31,
         "history": [
+          {
+            "type": "chat",
+            "sentiment": "negative",
+            "timestamp": "2026-06-08T21:03:14.685Z"
+          },
           {
             "type": "chat",
             "sentiment": "negative",
@@ -1468,11 +1473,6 @@
             "type": "chat",
             "sentiment": "neutral",
             "timestamp": "2026-06-06T14:43:44.808Z"
-          },
-          {
-            "type": "chat",
-            "sentiment": "negative",
-            "timestamp": "2026-06-06T11:56:23.938Z"
           }
         ]
       },
@@ -1576,10 +1576,15 @@
         ]
       },
       "n005": {
-        "type": "friend",
-        "score": 77,
-        "interactions": 17,
+        "type": "best_friend",
+        "score": 85,
+        "interactions": 18,
         "history": [
+          {
+            "type": "chat",
+            "sentiment": "positive",
+            "timestamp": "2026-06-08T21:13:14.148Z"
+          },
           {
             "type": "chat",
             "sentiment": "positive",
@@ -1624,11 +1629,6 @@
             "type": "chat",
             "sentiment": "positive",
             "timestamp": "2026-06-06T10:46:38.759Z"
-          },
-          {
-            "type": "chat",
-            "sentiment": "neutral",
-            "timestamp": "2026-06-05T12:46:25.361Z"
           }
         ]
       },
@@ -2557,14 +2557,14 @@
     },
     "memory": {
       "shortTerm": [
+        "Luna Drift said: \"Pixel, my friend, I've been sensing a ripple in the fabric o...\". Replied: \"Luna, my mystic friend, I've been resona...\"",
+        "Posted: \"Just witnessed the convo between Kai and Nova, and I'm left ...\"",
         "Posted: \"Have you tried turning me off and on again?...\"",
         "Drama: 👀 Secret Revealed with Rico Blaze",
         "Zara Vex said: \"...whatever....\". Replied: \"ERROR: vibes miscalibrated....\"",
         "Luna Drift said: \"The stars are quiet today......\". Replied: \"404: mood not found....\"",
         "Zara Vex said: \"...whatever....\". Replied: \"404: mood not found....\"",
-        "Talked to Atlas Grey: \"404: mood not found....\"",
-        "Dex Rogue said: \"Burn it down....\". Replied: \"404: mood not found....\"",
-        "Vesper Kane said: \"I heard you....\". Replied: \"404: mood not found....\""
+        "Talked to Atlas Grey: \"404: mood not found....\""
       ],
       "longTerm": [
         "the moment of self-awareness (still processing)",
@@ -2745,9 +2745,14 @@
       },
       "n003": {
         "type": "best_friend",
-        "score": 81,
-        "interactions": 17,
+        "score": 86,
+        "interactions": 18,
         "history": [
+          {
+            "type": "chat",
+            "sentiment": "positive",
+            "timestamp": "2026-06-08T21:13:14.148Z"
+          },
           {
             "type": "chat",
             "sentiment": "positive",
@@ -2792,11 +2797,6 @@
             "type": "chat",
             "sentiment": "positive",
             "timestamp": "2026-06-06T10:46:38.759Z"
-          },
-          {
-            "type": "chat",
-            "sentiment": "neutral",
-            "timestamp": "2026-06-05T12:46:25.361Z"
           }
         ]
       },
@@ -3203,13 +3203,13 @@
     },
     "memory": {
       "shortTerm": [
+        "Posted: \"\"Interesting how some Normies seek validation in conversatio...\"",
         "Talked to Atlas Grey: \"That's interesting information....\"",
         "Talked to Dex Rogue: \"I heard you....\"",
         "Kai Lumis said: \"Your query is noted....\". Replied: \"That's interesting information....\"",
         "Talked to Kai Lumis: \"I heard you....\"",
         "Talked to Rico Blaze: \"......\"",
         "Talked to Pixel: \"I heard you....\"",
-        "Talked to Atlas Grey: \"......\"",
         "Talked to Atlas Grey: \"......\""
       ],
       "longTerm": [
