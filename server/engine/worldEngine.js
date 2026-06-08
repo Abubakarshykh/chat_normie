@@ -309,7 +309,7 @@ export async function startSimulation(socketIO) {
   }
   console.log('[NFT] All Normie NFT data loaded and cached.');
 
-  const interval = parseInt(process.env.SIMULATION_INTERVAL_MS || '45000');
+  const interval = parseInt(process.env.SIMULATION_INTERVAL_MS || '180000');
   console.log(`[World] Starting simulation — tick every ${interval / 1000}s`);
 
   setTimeout(() => simulationTick(), 5000);
