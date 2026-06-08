@@ -57,7 +57,7 @@ export default function NormiePage() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           {/* Avatar Card */}
           <div className="glass-card" style={{ padding: '0', overflow: 'hidden' }}>
-            <img src={normie.nftImage} alt={normie.name} style={{ width: '100%', aspectRatio: '1/1', objectFit: 'cover' }} />
+            <img src={normie.imageUrl} alt={normie.name} style={{ width: '100%', aspectRatio: '1/1', objectFit: 'cover' }} />
             <div style={{ padding: '20px' }}>
               <h1 style={{ fontSize: '1.2rem', fontWeight: 800, marginBottom: '4px' }}>{normie.nftName}</h1>
               <div style={{ color: 'var(--text-muted)', fontSize: '0.85rem', marginBottom: '16px' }}>{normie.name}</div>

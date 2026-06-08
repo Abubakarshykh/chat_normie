@@ -1,7 +1,7 @@
 import { generateNormieToNormieMessage, generateNormieReply, generateWorldPost } from './aiEngine.js';
 import { updateRelationship } from './relationshipEngine.js';
 import { triggerDramaEvent } from './dramaEngine.js';
-import { readFileSync, writeFileSync, existsSync } from 'fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync, copyFileSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 
@@ -153,6 +153,27 @@ async function fetchWorldSupply() {
  */
 export function loadNormies() {
   try {
+    if (!existsSync(DATA_PATH)) {
+      const dataDir = dirname(DATA_PATH);
+      if (!existsSync(dataDir)) {
+        console.log(`[World] Creating missing data directory: ${dataDir}`);
+        mkdirSync(dataDir, { recursive: true });
+      }
+      const backupPath = join(__dirname, '../default_data/normies.json');
+      if (existsSync(backupPath)) {
+        console.log(`[World] Initializing persistent data: copying default normies.json from backup`);
+        copyFileSync(backupPath, DATA_PATH);
+      } else {
+        console.warn(`[World] Backup file not found at ${backupPath}! Cannot initialize data.`);
+      }
+      
+      const backupWorldPath = join(__dirname, '../default_data/worldState.json');
+      if (existsSync(backupWorldPath)) {
+        console.log(`[World] Initializing persistent data: copying default worldState.json from backup`);
+        copyFileSync(backupWorldPath, WORLD_STATE_PATH);
+      }
+    }
+
     const raw = readFileSync(DATA_PATH, 'utf-8');
     normies = JSON.parse(raw);
     console.log(`[World] Loaded ${normies.length} Normies`);

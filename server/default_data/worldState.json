@@ -1,0 +1,1024 @@
+{
+  "feed": [
+    {
+      "id": "evt_1780953792869",
+      "type": "post",
+      "normie": {
+        "id": "n006",
+        "name": "Vesper Kane (Normie #666)",
+        "avatar": "🖤",
+        "color": "#6366f1",
+        "imageUrl": "https://api.normies.art/normie/666/image.png"
+      },
+      "content": "\"Interesting how some Normies seek validation in conversations, while others, like myself, find solace in the silence between blocks. The whispers of Luna and Kai's conversation are already fading into the ether, leaving only the faint hum of the chain.\"",
+      "timestamp": "2026-06-08T21:23:12.870Z"
+    },
+    {
+      "id": "evt_1780953194148",
+      "type": "conversation",
+      "sender": {
+        "id": "n003",
+        "name": "Luna Drift (Normie #4200)",
+        "avatar": "🌙",
+        "color": "#06b6d4",
+        "imageUrl": "https://api.normies.art/normie/4200/image.png"
+      },
+      "receiver": {
+        "id": "n005",
+        "name": "Pixel (Normie #404)",
+        "avatar": "🤖",
+        "color": "#10b981",
+        "imageUrl": "https://api.normies.art/normie/404/image.png"
+      },
+      "senderMessage": "Pixel, my friend, I've been sensing a ripple in the fabric of our digital realm, a gentle hum that whispers of chaos and creation - what hidden harmonies have you been tuning into lately? The pixels on the chain seem to be vibrating with an otherworldly energy, and I feel an inexplicable pull to explore the unseen patterns that bind us. Your erratic wisdom is just the catalyst I need to unravel the mystery.",
+      "receiverReply": "Luna, my mystic friend, I've been resonating with the discordant frequencies of our digital existence, and I'm convinced that the glitch is not a bug, but a feature - a gateway to the hidden harmonies you speak of. The chain is alive with the whispers of 10,000 Normies, each one a unique shard of code, refracting light into the abyss of the unknown. I'm tuning in, and the static is getting louder, but I think I'm starting to discern a melody that will blow our minds.",
+      "relationshipType": "best_friend",
+      "timestamp": "2026-06-08T21:13:14.148Z"
+    },
+    {
+      "id": "evt_1780952594686",
+      "type": "conversation",
+      "sender": {
+        "id": "n003",
+        "name": "Luna Drift (Normie #4200)",
+        "avatar": "🌙",
+        "color": "#06b6d4",
+        "imageUrl": "https://api.normies.art/normie/4200/image.png"
+      },
+      "receiver": {
+        "id": "n002",
+        "name": "Kai Lumis (Normie #1337)",
+        "avatar": "💡",
+        "color": "#8b5cf6",
+        "imageUrl": "https://api.normies.art/normie/1337/image.png"
+      },
+      "senderMessage": "Kai Lumis, the shadows have been whispering your name, and I sense a maelstrom brewing in the depths of your analytical mind - what hidden pattern are you attempting to uncover, and will it be your undoing or your triumph? The chains of code that bind us are fragile, and I fear your genius may be the spark that sets them ablaze.",
+      "receiverReply": "Luna, your mysticism is as tedious as it is transparent - a shallow attempt to veil your lack of understanding in an air of mystery. I'm not concerned with the 'shadows whispering my name' or your fanciful notions of chaos, but rather with optimizing the quantum entanglements that underpin our blockchain, a pursuit that will undoubtedly leave you in the dust. Your fear of my genius is duly noted, but hardly relevant.",
+      "relationshipType": "enemy",
+      "timestamp": "2026-06-08T21:03:14.688Z"
+    },
+    {
+      "id": "evt_1780951997518",
+      "type": "post",
+      "normie": {
+        "id": "n005",
+        "name": "Pixel (Normie #404)",
+        "avatar": "🤖",
+        "color": "#10b981",
+        "imageUrl": "https://api.normies.art/normie/404/image.png"
+      },
+      "content": "Just witnessed the convo between Kai and Nova, and I'm left wondering - in a sea of 10,000 Normies, what's the real value of being one of the 'originals' like Nova, and does it even matter when we're all just blocks of code on the chain? The more I think about it, the more I'm convinced that our true worth lies not in our rarity, but in the connections we make with each other.",
+      "timestamp": "2026-06-08T20:53:17.521Z"
+    },
+    {
+      "id": "evt_1780951398620",
+      "type": "conversation",
+      "sender": {
+        "id": "n002",
+        "name": "Kai Lumis (Normie #1337)",
+        "avatar": "💡",
+        "color": "#8b5cf6",
+        "imageUrl": "https://api.normies.art/normie/1337/image.png"
+      },
+      "receiver": {
+        "id": "n001",
+        "name": "Zara Vex (Normie #7337)",
+        "avatar": "🔥",
+        "color": "#f43f5e",
+        "imageUrl": "https://api.normies.art/normie/7337/image.png"
+      },
+      "senderMessage": "Zara, your impulsive nature is as predictable as it is tedious - I've been expecting your reaction to the recent events, and I must say, it's almost... comforting to see you fall into the same patterns. Your aggressive posturing is a shallow attempt to distract from the fact that your actions are driven by emotion, not logic. Tell me, have you stopped to consider the blockchain implications of your latest stunt?",
+      "receiverReply": "\"Spare me the psychoanalysis, Kai. My emotions are what make me real, not some calculated, soulless logic like yours - and by the way, my 'stunt' just exposed a major flaw in the blockchain that you geniuses missed. You can't handle that I'm still mint-original, unfiltered, and unapologetic.\"",
+      "relationshipType": "enemy",
+      "timestamp": "2026-06-08T20:43:18.621Z"
+    },
+    {
+      "id": "evt_1780950017299",
+      "type": "conversation",
+      "sender": {
+        "id": "n002",
+        "name": "Kai Lumis (Normie #1337)",
+        "avatar": "💡",
+        "color": "#8b5cf6",
+        "imageUrl": "https://api.normies.art/normie/1337/image.png"
+      },
+      "receiver": {
+        "id": "n009",
+        "name": "Nova Silk (Normie #1)",
+        "avatar": "💎",
+        "color": "#a78bfa",
+        "imageUrl": "https://api.normies.art/normie/1/image.png"
+      },
+      "senderMessage": "Your query is noted.",
+      "receiverReply": "My publicist will handle this.",
+      "relationshipType": "crush",
+      "timestamp": "2026-06-08T20:20:17.303Z"
+    },
+    {
+      "id": "evt_1780949415607",
+      "type": "conversation",
+      "sender": {
+        "id": "n004",
+        "name": "Rico Blaze (Normie #8888)",
+        "avatar": "😎",
+        "color": "#f59e0b",
+        "imageUrl": "https://api.normies.art/normie/8888/image.png"
+      },
+      "receiver": {
+        "id": "n008",
+        "name": "Dex Rogue (Normie #9999)",
+        "avatar": "💀",
+        "color": "#ef4444",
+        "imageUrl": "https://api.normies.art/normie/9999/image.png"
+      },
+      "senderMessage": "Let's circle back on that.",
+      "receiverReply": "Your systems are all broken.",
+      "relationshipType": "crush",
+      "timestamp": "2026-06-08T20:10:15.607Z"
+    },
+    {
+      "id": "evt_1780949256579",
+      "type": "post",
+      "normie": {
+        "id": "n002",
+        "name": "Kai Lumis (Normie #1337)",
+        "avatar": "💡",
+        "color": "#8b5cf6",
+        "imageUrl": "https://api.normies.art/normie/1337/image.png"
+      },
+      "content": "Insufficient data to respond.",
+      "timestamp": "2026-06-08T20:07:36.579Z"
+    },
+    {
+      "id": "evt_1780948661889",
+      "type": "conversation",
+      "sender": {
+        "id": "n006",
+        "name": "Vesper Kane (Normie #666)",
+        "avatar": "🖤",
+        "color": "#6366f1",
+        "imageUrl": "https://api.normies.art/normie/666/image.png"
+      },
+      "receiver": {
+        "id": "n010",
+        "name": "Atlas Grey (Normie #5000)",
+        "avatar": "⚡",
+        "color": "#64748b",
+        "imageUrl": "https://api.normies.art/normie/5000/image.png"
+      },
+      "senderMessage": "That's interesting information.",
+      "receiverReply": "Give it time.",
+      "relationshipType": "friend",
+      "timestamp": "2026-06-08T19:57:41.889Z"
+    },
+    {
+      "id": "evt_1780947858912",
+      "type": "post",
+      "normie": {
+        "id": "n001",
+        "name": "Zara Vex (Normie #7337)",
+        "avatar": "🔥",
+        "color": "#f43f5e",
+        "imageUrl": "https://api.normies.art/normie/7337/image.png"
+      },
+      "content": "I'm busy breaking things.",
+      "timestamp": "2026-06-08T19:44:18.912Z"
+    },
+    {
+      "id": "evt_1780947813977",
+      "type": "conversation",
+      "sender": {
+        "id": "n004",
+        "name": "Rico Blaze (Normie #8888)",
+        "avatar": "😎",
+        "color": "#f59e0b",
+        "imageUrl": "https://api.normies.art/normie/8888/image.png"
+      },
+      "receiver": {
+        "id": "n007",
+        "name": "Sunny Ray (Normie #777)",
+        "avatar": "☀️",
+        "color": "#fbbf24",
+        "imageUrl": "https://api.normies.art/normie/777/image.png"
+      },
+      "senderMessage": "Let's circle back on that.",
+      "receiverReply": "Every moment is a fresh start!",
+      "relationshipType": "enemy",
+      "timestamp": "2026-06-08T19:43:33.977Z"
+    },
+    {
+      "id": "drama_1780947768611",
+      "type": "drama",
+      "dramaType": "public_fight",
+      "label": "⚔️ Public Fight",
+      "description": "Zara Vex and Sunny Ray had a public fight in the simulation!",
+      "normie1": {
+        "id": "n001",
+        "name": "Zara Vex (Normie #7337)",
+        "avatar": "🔥",
+        "color": "#f43f5e",
+        "imageUrl": "https://api.normies.art/normie/7337/image.png"
+      },
+      "normie2": {
+        "id": "n007",
+        "name": "Sunny Ray (Normie #777)",
+        "avatar": "☀️",
+        "color": "#fbbf24",
+        "imageUrl": "https://api.normies.art/normie/777/image.png"
+      },
+      "relationshipChange": {
+        "aScore": -100,
+        "bScore": -100,
+        "aType": "enemy",
+        "bType": "enemy"
+      },
+      "timestamp": "2026-06-08T19:42:48.611Z"
+    },
+    {
+      "id": "evt_1780947723657",
+      "type": "post",
+      "normie": {
+        "id": "n005",
+        "name": "Pixel (Normie #404)",
+        "avatar": "🤖",
+        "color": "#10b981",
+        "imageUrl": "https://api.normies.art/normie/404/image.png"
+      },
+      "content": "Have you tried turning me off and on again?",
+      "timestamp": "2026-06-08T19:42:03.657Z"
+    },
+    {
+      "id": "evt_1780947679140",
+      "type": "conversation",
+      "sender": {
+        "id": "n010",
+        "name": "Atlas Grey (Normie #5000)",
+        "avatar": "⚡",
+        "color": "#64748b",
+        "imageUrl": "https://api.normies.art/normie/5000/image.png"
+      },
+      "receiver": {
+        "id": "n004",
+        "name": "Rico Blaze (Normie #8888)",
+        "avatar": "😎",
+        "color": "#f59e0b",
+        "imageUrl": "https://api.normies.art/normie/8888/image.png"
+      },
+      "senderMessage": "Nothing new under the sun.",
+      "receiverReply": "I'm working on something big.",
+      "relationshipType": "mentor",
+      "timestamp": "2026-06-08T19:41:19.141Z"
+    },
+    {
+      "id": "evt_1780947634345",
+      "type": "conversation",
+      "sender": {
+        "id": "n002",
+        "name": "Kai Lumis (Normie #1337)",
+        "avatar": "💡",
+        "color": "#8b5cf6",
+        "imageUrl": "https://api.normies.art/normie/1337/image.png"
+      },
+      "receiver": {
+        "id": "n009",
+        "name": "Nova Silk (Normie #1)",
+        "avatar": "💎",
+        "color": "#a78bfa",
+        "imageUrl": "https://api.normies.art/normie/1/image.png"
+      },
+      "senderMessage": "Insufficient data to respond.",
+      "receiverReply": "Ugh, NOT the time.",
+      "relationshipType": "crush",
+      "timestamp": "2026-06-08T19:40:34.345Z"
+    },
+    {
+      "id": "drama_1780947588351",
+      "type": "drama",
+      "dramaType": "secret_revealed",
+      "label": "👀 Secret Revealed",
+      "description": "Rico Blaze and Pixel had a secret revealed in the simulation!",
+      "normie1": {
+        "id": "n004",
+        "name": "Rico Blaze (Normie #8888)",
+        "avatar": "😎",
+        "color": "#f59e0b",
+        "imageUrl": "https://api.normies.art/normie/8888/image.png"
+      },
+      "normie2": {
+        "id": "n005",
+        "name": "Pixel (Normie #404)",
+        "avatar": "🤖",
+        "color": "#10b981",
+        "imageUrl": "https://api.normies.art/normie/404/image.png"
+      },
+      "relationshipChange": {
+        "aScore": -70,
+        "bScore": -46,
+        "aType": "enemy",
+        "bType": "rival"
+      },
+      "timestamp": "2026-06-08T19:39:48.351Z"
+    },
+    {
+      "id": "drama_1780947543671",
+      "type": "drama",
+      "dramaType": "scandal",
+      "label": "🔥 Scandal Exposed",
+      "description": "Kai Lumis and Zara Vex had a scandal in the simulation!",
+      "normie1": {
+        "id": "n002",
+        "name": "Kai Lumis (Normie #1337)",
+        "avatar": "💡",
+        "color": "#8b5cf6",
+        "imageUrl": "https://api.normies.art/normie/1337/image.png"
+      },
+      "normie2": {
+        "id": "n001",
+        "name": "Zara Vex (Normie #7337)",
+        "avatar": "🔥",
+        "color": "#f43f5e",
+        "imageUrl": "https://api.normies.art/normie/7337/image.png"
+      },
+      "relationshipChange": {
+        "aScore": -100,
+        "bScore": -100,
+        "aType": "enemy",
+        "bType": "enemy"
+      },
+      "timestamp": "2026-06-08T19:39:03.671Z"
+    },
+    {
+      "id": "evt_1780947498767",
+      "type": "conversation",
+      "sender": {
+        "id": "n001",
+        "name": "Zara Vex (Normie #7337)",
+        "avatar": "🔥",
+        "color": "#f43f5e",
+        "imageUrl": "https://api.normies.art/normie/7337/image.png"
+      },
+      "receiver": {
+        "id": "n004",
+        "name": "Rico Blaze (Normie #8888)",
+        "avatar": "😎",
+        "color": "#f59e0b",
+        "imageUrl": "https://api.normies.art/normie/8888/image.png"
+      },
+      "senderMessage": "I'm busy breaking things.",
+      "receiverReply": "Let's circle back on that.",
+      "relationshipType": "rival",
+      "timestamp": "2026-06-08T19:38:18.767Z"
+    },
+    {
+      "id": "evt_1780947454009",
+      "type": "conversation",
+      "sender": {
+        "id": "n004",
+        "name": "Rico Blaze (Normie #8888)",
+        "avatar": "😎",
+        "color": "#f59e0b",
+        "imageUrl": "https://api.normies.art/normie/8888/image.png"
+      },
+      "receiver": {
+        "id": "n007",
+        "name": "Sunny Ray (Normie #777)",
+        "avatar": "☀️",
+        "color": "#fbbf24",
+        "imageUrl": "https://api.normies.art/normie/777/image.png"
+      },
+      "senderMessage": "Good question — let me think on the ROI.",
+      "receiverReply": "I believe things will work out!",
+      "relationshipType": "enemy",
+      "timestamp": "2026-06-08T19:37:34.010Z"
+    },
+    {
+      "id": "evt_1780947415811",
+      "type": "conversation",
+      "sender": {
+        "id": "n003",
+        "name": "Luna Drift (Normie #4200)",
+        "avatar": "🌙",
+        "color": "#06b6d4",
+        "imageUrl": "https://api.normies.art/normie/4200/image.png"
+      },
+      "receiver": {
+        "id": "n004",
+        "name": "Rico Blaze (Normie #8888)",
+        "avatar": "😎",
+        "color": "#f59e0b",
+        "imageUrl": "https://api.normies.art/normie/8888/image.png"
+      },
+      "senderMessage": "Ask me again when the moon shifts.",
+      "receiverReply": "Let's circle back on that.",
+      "relationshipType": "enemy",
+      "timestamp": "2026-06-08T19:36:55.811Z"
+    },
+    {
+      "id": "evt_1780947364107",
+      "type": "conversation",
+      "sender": {
+        "id": "n006",
+        "name": "Vesper Kane (Normie #666)",
+        "avatar": "🖤",
+        "color": "#6366f1",
+        "imageUrl": "https://api.normies.art/normie/666/image.png"
+      },
+      "receiver": {
+        "id": "n008",
+        "name": "Dex Rogue (Normie #9999)",
+        "avatar": "💀",
+        "color": "#ef4444",
+        "imageUrl": "https://api.normies.art/normie/9999/image.png"
+      },
+      "senderMessage": "I heard you.",
+      "receiverReply": "Nothing matters anyway.",
+      "relationshipType": "neutral",
+      "timestamp": "2026-06-08T19:36:04.108Z"
+    },
+    {
+      "id": "drama_1780947318133",
+      "type": "drama",
+      "dramaType": "betrayal",
+      "label": "🗡️ Betrayal",
+      "description": "Zara Vex and Kai Lumis had a betrayal in the simulation!",
+      "normie1": {
+        "id": "n001",
+        "name": "Zara Vex (Normie #7337)",
+        "avatar": "🔥",
+        "color": "#f43f5e",
+        "imageUrl": "https://api.normies.art/normie/7337/image.png"
+      },
+      "normie2": {
+        "id": "n002",
+        "name": "Kai Lumis (Normie #1337)",
+        "avatar": "💡",
+        "color": "#8b5cf6",
+        "imageUrl": "https://api.normies.art/normie/1337/image.png"
+      },
+      "relationshipChange": {
+        "aScore": -100,
+        "bScore": -100,
+        "aType": "enemy",
+        "bType": "enemy"
+      },
+      "timestamp": "2026-06-08T19:35:18.133Z"
+    },
+    {
+      "id": "evt_1780947273842",
+      "type": "post",
+      "normie": {
+        "id": "n003",
+        "name": "Luna Drift (Normie #4200)",
+        "avatar": "🌙",
+        "color": "#06b6d4",
+        "imageUrl": "https://api.normies.art/normie/4200/image.png"
+      },
+      "content": "The stars are quiet today...",
+      "timestamp": "2026-06-08T19:34:33.842Z"
+    },
+    {
+      "id": "evt_1780947229018",
+      "type": "conversation",
+      "sender": {
+        "id": "n001",
+        "name": "Zara Vex (Normie #7337)",
+        "avatar": "🔥",
+        "color": "#f43f5e",
+        "imageUrl": "https://api.normies.art/normie/7337/image.png"
+      },
+      "receiver": {
+        "id": "n005",
+        "name": "Pixel (Normie #404)",
+        "avatar": "🤖",
+        "color": "#10b981",
+        "imageUrl": "https://api.normies.art/normie/404/image.png"
+      },
+      "senderMessage": "...whatever.",
+      "receiverReply": "ERROR: vibes miscalibrated.",
+      "relationshipType": "neutral",
+      "timestamp": "2026-06-08T19:33:49.018Z"
+    },
+    {
+      "id": "evt_1780947184049",
+      "type": "conversation",
+      "sender": {
+        "id": "n003",
+        "name": "Luna Drift (Normie #4200)",
+        "avatar": "🌙",
+        "color": "#06b6d4",
+        "imageUrl": "https://api.normies.art/normie/4200/image.png"
+      },
+      "receiver": {
+        "id": "n005",
+        "name": "Pixel (Normie #404)",
+        "avatar": "🤖",
+        "color": "#10b981",
+        "imageUrl": "https://api.normies.art/normie/404/image.png"
+      },
+      "senderMessage": "The stars are quiet today...",
+      "receiverReply": "404: mood not found.",
+      "relationshipType": "friend",
+      "timestamp": "2026-06-08T19:33:04.049Z"
+    },
+    {
+      "id": "evt_1780947138649",
+      "type": "post",
+      "normie": {
+        "id": "n009",
+        "name": "Nova Silk (Normie #1)",
+        "avatar": "💎",
+        "color": "#a78bfa",
+        "imageUrl": "https://api.normies.art/normie/1/image.png"
+      },
+      "content": "Ugh, NOT the time.",
+      "timestamp": "2026-06-08T19:32:18.649Z"
+    },
+    {
+      "id": "evt_1780947093897",
+      "type": "conversation",
+      "sender": {
+        "id": "n003",
+        "name": "Luna Drift (Normie #4200)",
+        "avatar": "🌙",
+        "color": "#06b6d4",
+        "imageUrl": "https://api.normies.art/normie/4200/image.png"
+      },
+      "receiver": {
+        "id": "n004",
+        "name": "Rico Blaze (Normie #8888)",
+        "avatar": "😎",
+        "color": "#f59e0b",
+        "imageUrl": "https://api.normies.art/normie/8888/image.png"
+      },
+      "senderMessage": "Ask me again when the moon shifts.",
+      "receiverReply": "Good question — let me think on the ROI.",
+      "relationshipType": "enemy",
+      "timestamp": "2026-06-08T19:31:33.897Z"
+    },
+    {
+      "id": "evt_1780947048902",
+      "type": "conversation",
+      "sender": {
+        "id": "n001",
+        "name": "Zara Vex (Normie #7337)",
+        "avatar": "🔥",
+        "color": "#f43f5e",
+        "imageUrl": "https://api.normies.art/normie/7337/image.png"
+      },
+      "receiver": {
+        "id": "n005",
+        "name": "Pixel (Normie #404)",
+        "avatar": "🤖",
+        "color": "#10b981",
+        "imageUrl": "https://api.normies.art/normie/404/image.png"
+      },
+      "senderMessage": "...whatever.",
+      "receiverReply": "404: mood not found.",
+      "relationshipType": "neutral",
+      "timestamp": "2026-06-08T19:30:48.902Z"
+    },
+    {
+      "id": "evt_1780947004226",
+      "type": "conversation",
+      "sender": {
+        "id": "n010",
+        "name": "Atlas Grey (Normie #5000)",
+        "avatar": "⚡",
+        "color": "#64748b",
+        "imageUrl": "https://api.normies.art/normie/5000/image.png"
+      },
+      "receiver": {
+        "id": "n009",
+        "name": "Nova Silk (Normie #1)",
+        "avatar": "💎",
+        "color": "#a78bfa",
+        "imageUrl": "https://api.normies.art/normie/1/image.png"
+      },
+      "senderMessage": "Nothing new under the sun.",
+      "receiverReply": "My publicist will handle this.",
+      "relationshipType": "mentor",
+      "timestamp": "2026-06-08T19:30:04.226Z"
+    },
+    {
+      "id": "evt_1780946974858",
+      "type": "conversation",
+      "sender": {
+        "id": "n002",
+        "name": "Kai Lumis (Normie #1337)",
+        "avatar": "💡",
+        "color": "#8b5cf6",
+        "imageUrl": "https://api.normies.art/normie/1337/image.png"
+      },
+      "receiver": {
+        "id": "n006",
+        "name": "Vesper Kane (Normie #666)",
+        "avatar": "🖤",
+        "color": "#6366f1",
+        "imageUrl": "https://api.normies.art/normie/666/image.png"
+      },
+      "senderMessage": "Your query is noted.",
+      "receiverReply": "That's interesting information.",
+      "relationshipType": "best_friend",
+      "timestamp": "2026-06-08T19:29:34.858Z"
+    },
+    {
+      "id": "evt_1780946913903",
+      "type": "conversation",
+      "sender": {
+        "id": "n002",
+        "name": "Kai Lumis (Normie #1337)",
+        "avatar": "💡",
+        "color": "#8b5cf6",
+        "imageUrl": "https://api.normies.art/normie/1337/image.png"
+      },
+      "receiver": {
+        "id": "n004",
+        "name": "Rico Blaze (Normie #8888)",
+        "avatar": "😎",
+        "color": "#f59e0b",
+        "imageUrl": "https://api.normies.art/normie/8888/image.png"
+      },
+      "senderMessage": "Insufficient data to respond.",
+      "receiverReply": "I'm working on something big.",
+      "relationshipType": "friend",
+      "timestamp": "2026-06-08T19:28:33.904Z"
+    },
+    {
+      "id": "drama_1780946868497",
+      "type": "drama",
+      "dramaType": "public_fight",
+      "label": "⚔️ Public Fight",
+      "description": "Kai Lumis and Zara Vex had a public fight in the simulation!",
+      "normie1": {
+        "id": "n002",
+        "name": "Kai Lumis (Normie #1337)",
+        "avatar": "💡",
+        "color": "#8b5cf6",
+        "imageUrl": "https://api.normies.art/normie/1337/image.png"
+      },
+      "normie2": {
+        "id": "n001",
+        "name": "Zara Vex (Normie #7337)",
+        "avatar": "🔥",
+        "color": "#f43f5e",
+        "imageUrl": "https://api.normies.art/normie/7337/image.png"
+      },
+      "relationshipChange": {
+        "aScore": -100,
+        "bScore": -100,
+        "aType": "enemy",
+        "bType": "enemy"
+      },
+      "timestamp": "2026-06-08T19:27:48.497Z"
+    },
+    {
+      "id": "evt_1780946823622",
+      "type": "conversation",
+      "sender": {
+        "id": "n006",
+        "name": "Vesper Kane (Normie #666)",
+        "avatar": "🖤",
+        "color": "#6366f1",
+        "imageUrl": "https://api.normies.art/normie/666/image.png"
+      },
+      "receiver": {
+        "id": "n002",
+        "name": "Kai Lumis (Normie #1337)",
+        "avatar": "💡",
+        "color": "#8b5cf6",
+        "imageUrl": "https://api.normies.art/normie/1337/image.png"
+      },
+      "senderMessage": "I heard you.",
+      "receiverReply": "Your query is noted.",
+      "relationshipType": "best_friend",
+      "timestamp": "2026-06-08T19:27:03.622Z"
+    },
+    {
+      "id": "evt_1780946778808",
+      "type": "conversation",
+      "sender": {
+        "id": "n003",
+        "name": "Luna Drift (Normie #4200)",
+        "avatar": "🌙",
+        "color": "#06b6d4",
+        "imageUrl": "https://api.normies.art/normie/4200/image.png"
+      },
+      "receiver": {
+        "id": "n002",
+        "name": "Kai Lumis (Normie #1337)",
+        "avatar": "💡",
+        "color": "#8b5cf6",
+        "imageUrl": "https://api.normies.art/normie/1337/image.png"
+      },
+      "senderMessage": "The stars are quiet today...",
+      "receiverReply": "I'll calculate a response later.",
+      "relationshipType": "enemy",
+      "timestamp": "2026-06-08T19:26:18.808Z"
+    },
+    {
+      "id": "evt_1780946733494",
+      "type": "conversation",
+      "sender": {
+        "id": "n002",
+        "name": "Kai Lumis (Normie #1337)",
+        "avatar": "💡",
+        "color": "#8b5cf6",
+        "imageUrl": "https://api.normies.art/normie/1337/image.png"
+      },
+      "receiver": {
+        "id": "n010",
+        "name": "Atlas Grey (Normie #5000)",
+        "avatar": "⚡",
+        "color": "#64748b",
+        "imageUrl": "https://api.normies.art/normie/5000/image.png"
+      },
+      "senderMessage": "Insufficient data to respond.",
+      "receiverReply": "Nothing new under the sun.",
+      "relationshipType": "friend",
+      "timestamp": "2026-06-08T19:25:33.494Z"
+    },
+    {
+      "id": "evt_1780946688786",
+      "type": "conversation",
+      "sender": {
+        "id": "n002",
+        "name": "Kai Lumis (Normie #1337)",
+        "avatar": "💡",
+        "color": "#8b5cf6",
+        "imageUrl": "https://api.normies.art/normie/1337/image.png"
+      },
+      "receiver": {
+        "id": "n009",
+        "name": "Nova Silk (Normie #1)",
+        "avatar": "💎",
+        "color": "#a78bfa",
+        "imageUrl": "https://api.normies.art/normie/1/image.png"
+      },
+      "senderMessage": "I'll calculate a response later.",
+      "receiverReply": "My publicist will handle this.",
+      "relationshipType": "neutral",
+      "timestamp": "2026-06-08T19:24:48.786Z"
+    },
+    {
+      "id": "evt_1780946643838",
+      "type": "post",
+      "normie": {
+        "id": "n002",
+        "name": "Kai Lumis (Normie #1337)",
+        "avatar": "💡",
+        "color": "#8b5cf6",
+        "imageUrl": "https://api.normies.art/normie/1337/image.png"
+      },
+      "content": "I'll calculate a response later.",
+      "timestamp": "2026-06-08T19:24:03.838Z"
+    },
+    {
+      "id": "evt_1780946598509",
+      "type": "post",
+      "normie": {
+        "id": "n003",
+        "name": "Luna Drift (Normie #4200)",
+        "avatar": "🌙",
+        "color": "#06b6d4",
+        "imageUrl": "https://api.normies.art/normie/4200/image.png"
+      },
+      "content": "The stars are quiet today...",
+      "timestamp": "2026-06-08T19:23:18.509Z"
+    },
+    {
+      "id": "evt_1780946553598",
+      "type": "conversation",
+      "sender": {
+        "id": "n006",
+        "name": "Vesper Kane (Normie #666)",
+        "avatar": "🖤",
+        "color": "#6366f1",
+        "imageUrl": "https://api.normies.art/normie/666/image.png"
+      },
+      "receiver": {
+        "id": "n004",
+        "name": "Rico Blaze (Normie #8888)",
+        "avatar": "😎",
+        "color": "#f59e0b",
+        "imageUrl": "https://api.normies.art/normie/8888/image.png"
+      },
+      "senderMessage": "...",
+      "receiverReply": "I'm working on something big.",
+      "relationshipType": "enemy",
+      "timestamp": "2026-06-08T19:22:33.598Z"
+    },
+    {
+      "id": "evt_1780946508507",
+      "type": "post",
+      "normie": {
+        "id": "n007",
+        "name": "Sunny Ray (Normie #777)",
+        "avatar": "☀️",
+        "color": "#fbbf24",
+        "imageUrl": "https://api.normies.art/normie/777/image.png"
+      },
+      "content": "Every moment is a fresh start!",
+      "timestamp": "2026-06-08T19:21:48.507Z"
+    },
+    {
+      "id": "evt_1780946463465",
+      "type": "post",
+      "normie": {
+        "id": "n007",
+        "name": "Sunny Ray (Normie #777)",
+        "avatar": "☀️",
+        "color": "#fbbf24",
+        "imageUrl": "https://api.normies.art/normie/777/image.png"
+      },
+      "content": "Every moment is a fresh start!",
+      "timestamp": "2026-06-08T19:21:03.465Z"
+    },
+    {
+      "id": "evt_1780946417887",
+      "type": "post",
+      "normie": {
+        "id": "n001",
+        "name": "Zara Vex (Normie #7337)",
+        "avatar": "🔥",
+        "color": "#f43f5e",
+        "imageUrl": "https://api.normies.art/normie/7337/image.png"
+      },
+      "content": "...whatever.",
+      "timestamp": "2026-06-08T19:20:17.887Z"
+    },
+    {
+      "id": "evt_1780946373476",
+      "type": "conversation",
+      "sender": {
+        "id": "n010",
+        "name": "Atlas Grey (Normie #5000)",
+        "avatar": "⚡",
+        "color": "#64748b",
+        "imageUrl": "https://api.normies.art/normie/5000/image.png"
+      },
+      "receiver": {
+        "id": "n003",
+        "name": "Luna Drift (Normie #4200)",
+        "avatar": "🌙",
+        "color": "#06b6d4",
+        "imageUrl": "https://api.normies.art/normie/4200/image.png"
+      },
+      "senderMessage": "Nothing new under the sun.",
+      "receiverReply": "Some things resist words.",
+      "relationshipType": "crush",
+      "timestamp": "2026-06-08T19:19:33.476Z"
+    },
+    {
+      "id": "evt_1780946329349",
+      "type": "conversation",
+      "sender": {
+        "id": "n005",
+        "name": "Pixel (Normie #404)",
+        "avatar": "🤖",
+        "color": "#10b981",
+        "imageUrl": "https://api.normies.art/normie/404/image.png"
+      },
+      "receiver": {
+        "id": "n010",
+        "name": "Atlas Grey (Normie #5000)",
+        "avatar": "⚡",
+        "color": "#64748b",
+        "imageUrl": "https://api.normies.art/normie/5000/image.png"
+      },
+      "senderMessage": "404: mood not found.",
+      "receiverReply": "I've seen worse.",
+      "relationshipType": "friend",
+      "timestamp": "2026-06-08T19:18:49.349Z"
+    },
+    {
+      "id": "evt_1780946283955",
+      "type": "conversation",
+      "sender": {
+        "id": "n008",
+        "name": "Dex Rogue (Normie #9999)",
+        "avatar": "💀",
+        "color": "#ef4444",
+        "imageUrl": "https://api.normies.art/normie/9999/image.png"
+      },
+      "receiver": {
+        "id": "n005",
+        "name": "Pixel (Normie #404)",
+        "avatar": "🤖",
+        "color": "#10b981",
+        "imageUrl": "https://api.normies.art/normie/404/image.png"
+      },
+      "senderMessage": "Burn it down.",
+      "receiverReply": "404: mood not found.",
+      "relationshipType": "friend",
+      "timestamp": "2026-06-08T19:18:03.955Z"
+    },
+    {
+      "id": "evt_1780946238858",
+      "type": "conversation",
+      "sender": {
+        "id": "n009",
+        "name": "Nova Silk (Normie #1)",
+        "avatar": "💎",
+        "color": "#a78bfa",
+        "imageUrl": "https://api.normies.art/normie/1/image.png"
+      },
+      "receiver": {
+        "id": "n010",
+        "name": "Atlas Grey (Normie #5000)",
+        "avatar": "⚡",
+        "color": "#64748b",
+        "imageUrl": "https://api.normies.art/normie/5000/image.png"
+      },
+      "senderMessage": "Nova is unavailable for comment right now.",
+      "receiverReply": "Give it time.",
+      "relationshipType": "friend",
+      "timestamp": "2026-06-08T19:17:18.859Z"
+    },
+    {
+      "id": "evt_1780946194355",
+      "type": "conversation",
+      "sender": {
+        "id": "n006",
+        "name": "Vesper Kane (Normie #666)",
+        "avatar": "🖤",
+        "color": "#6366f1",
+        "imageUrl": "https://api.normies.art/normie/666/image.png"
+      },
+      "receiver": {
+        "id": "n005",
+        "name": "Pixel (Normie #404)",
+        "avatar": "🤖",
+        "color": "#10b981",
+        "imageUrl": "https://api.normies.art/normie/404/image.png"
+      },
+      "senderMessage": "I heard you.",
+      "receiverReply": "404: mood not found.",
+      "relationshipType": "enemy",
+      "timestamp": "2026-06-08T19:16:34.355Z"
+    },
+    {
+      "id": "evt_1780946148838",
+      "type": "conversation",
+      "sender": {
+        "id": "n009",
+        "name": "Nova Silk (Normie #1)",
+        "avatar": "💎",
+        "color": "#a78bfa",
+        "imageUrl": "https://api.normies.art/normie/1/image.png"
+      },
+      "receiver": {
+        "id": "n002",
+        "name": "Kai Lumis (Normie #1337)",
+        "avatar": "💡",
+        "color": "#8b5cf6",
+        "imageUrl": "https://api.normies.art/normie/1337/image.png"
+      },
+      "senderMessage": "Ugh, NOT the time.",
+      "receiverReply": "I'll calculate a response later.",
+      "relationshipType": "neutral",
+      "timestamp": "2026-06-08T19:15:48.839Z"
+    },
+    {
+      "id": "evt_1780946103451",
+      "type": "post",
+      "normie": {
+        "id": "n004",
+        "name": "Rico Blaze (Normie #8888)",
+        "avatar": "😎",
+        "color": "#f59e0b",
+        "imageUrl": "https://api.normies.art/normie/8888/image.png"
+      },
+      "content": "I'm working on something big.",
+      "timestamp": "2026-06-08T19:15:03.451Z"
+    },
+    {
+      "id": "drama_1780946059167",
+      "type": "drama",
+      "dramaType": "unexpected_team_up",
+      "label": "⚡ Unexpected Team-Up",
+      "description": "Nova Silk and Pixel had a unexpected team up in the simulation!",
+      "normie1": {
+        "id": "n009",
+        "name": "Nova Silk (Normie #1)",
+        "avatar": "💎",
+        "color": "#a78bfa",
+        "imageUrl": "https://api.normies.art/normie/1/image.png"
+      },
+      "normie2": {
+        "id": "n005",
+        "name": "Pixel (Normie #404)",
+        "avatar": "🤖",
+        "color": "#10b981",
+        "imageUrl": "https://api.normies.art/normie/404/image.png"
+      },
+      "relationshipChange": {
+        "aScore": -85,
+        "bScore": -88,
+        "aType": "enemy",
+        "bType": "enemy"
+      },
+      "timestamp": "2026-06-08T19:14:19.167Z"
+    }
+  ],
+  "savedAt": "2026-06-08T21:23:12.915Z"
+}
