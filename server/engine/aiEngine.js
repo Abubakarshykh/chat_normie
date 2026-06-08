@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash-exp' });
+const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
 
 /**
  * Build the on-chain persona section from agentPersona (if available)
@@ -161,16 +161,16 @@ Write 1-2 vivid sentences describing what happened, like a dramatic news headlin
  */
 function getOfflineResponse(normie) {
   const fallbacks = {
-    'The Rebel':    ["Not now.", "I'm busy breaking things.", "...whatever."],
-    'The Genius':   ["Insufficient data to respond.", "I'll calculate a response later.", "Your query is noted."],
-    'The Mystic':   ["The stars are quiet today...", "Some things resist words.", "Ask me again when the moon shifts."],
-    'The Hustler':  ["Let's circle back on that.", "I'm working on something big.", "Good question — let me think on the ROI."],
-    'The Glitch':   ["ERROR: vibes miscalibrated.", "404: mood not found.", "Have you tried turning me off and on again?"],
-    'The Shadow':   ["...", "I heard you.", "That's interesting information."],
+    'The Rebel': ["Not now.", "I'm busy breaking things.", "...whatever."],
+    'The Genius': ["Insufficient data to respond.", "I'll calculate a response later.", "Your query is noted."],
+    'The Mystic': ["The stars are quiet today...", "Some things resist words.", "Ask me again when the moon shifts."],
+    'The Hustler': ["Let's circle back on that.", "I'm working on something big.", "Good question — let me think on the ROI."],
+    'The Glitch': ["ERROR: vibes miscalibrated.", "404: mood not found.", "Have you tried turning me off and on again?"],
+    'The Shadow': ["...", "I heard you.", "That's interesting information."],
     'The Optimist': ["Every moment is a fresh start!", "I believe things will work out!", "That's wonderful!"],
-    'The Anarchist':["Nothing matters anyway.", "Burn it down.", "Your systems are all broken."],
-    'The Star':     ["Nova is unavailable for comment right now.", "My publicist will handle this.", "Ugh, NOT the time."],
-    'The Veteran':  ["I've seen worse.", "Give it time.", "Nothing new under the sun."],
+    'The Anarchist': ["Nothing matters anyway.", "Burn it down.", "Your systems are all broken."],
+    'The Star': ["Nova is unavailable for comment right now.", "My publicist will handle this.", "Ugh, NOT the time."],
+    'The Veteran': ["I've seen worse.", "Give it time.", "Nothing new under the sun."],
   };
   const arr = fallbacks[normie.archetype] || ["..."];
   return arr[Math.floor(Math.random() * arr.length)];

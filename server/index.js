@@ -17,12 +17,12 @@ const CLIENT_URL = process.env.CLIENT_URL || 'http://localhost:3002';
 const PORT = process.env.PORT || 3001;
 
 // ── Middleware ──────────────────────────────────────────────────────────────
-app.use(cors({ origin: CLIENT_URL, credentials: true }));
+app.use(cors({ origin: ['http://localhost:3000','http://localhost:3003'], credentials: true }));
 app.use(express.json());
 
 // ── Socket.io ───────────────────────────────────────────────────────────────
 const io = new Server(httpServer, {
-  cors: { origin: CLIENT_URL, methods: ['GET', 'POST'], credentials: true },
+  cors: { origin: ['http://localhost:3000','http://localhost:3003'], methods: ['GET', 'POST'], credentials: true },
 });
 
 io.on('connection', (socket) => {
