@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useParams } from 'next/navigation';
 import { useSocket } from '@/hooks/useSocket';
 import { api } from '@/lib/api';
@@ -86,25 +86,49 @@ export default function NormiePage() {
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState<'chat' | 'relationships' | 'ancestry'>('chat');
   const [isPlayingSound, setIsPlayingSound] = useState(false);
+  const synthRef = useRef<Tone.Synth | null>(null);
 
   useEffect(() => {
     if (!id) return;
     api.getNormie(id).then(data => { setNormie(data); setLoading(false); }).catch(() => setLoading(false));
   }, [id]);
 
+  // Stop audio when component unmounts
+  useEffect(() => {
+    return () => {
+      Tone.Transport.stop();
+      Tone.Transport.cancel();
+      if (synthRef.current) {
+        synthRef.current.dispose();
+        synthRef.current = null;
+      }
+    };
+  }, []);
+
+  const stopSound = () => {
+    Tone.Transport.stop();
+    Tone.Transport.cancel();
+    if (synthRef.current) {
+      synthRef.current.dispose();
+      synthRef.current = null;
+    }
+    setIsPlayingSound(false);
+  };
+
   const playBitmapSoundscape = async () => {
-    if (isPlayingSound) return;
+    if (isPlayingSound) { stopSound(); return; }
     setIsPlayingSound(true);
-    
+
     try {
       await Tone.start();
       const res = await fetch(`https://api.normies.art/normie/${normie.tokenId || normie.id}/pixels`);
       const pixels = res.ok ? await res.text() : '';
-      
+
       const synth = new Tone.Synth().toDestination();
-      
-      const rows = [];
+      synthRef.current = synth;
+
       const pixelString = pixels.length === 1600 ? pixels : Array(1600).fill(0).map(() => Math.random() > 0.5 ? '1' : '0').join('');
+      const rows = [];
       for (let i = 0; i < 40; i++) {
         rows.push(pixelString.substring(i * 40, (i + 1) * 40));
       }
@@ -113,11 +137,12 @@ export default function NormiePage() {
       rows.forEach((row, index) => {
         const density = (row.match(/1/g) || []).length;
         const frequency = 200 + (density / 40) * 600;
-        synth.triggerAttackRelease(frequency, "80ms", now + index * 0.1);
+        synth.triggerAttackRelease(frequency, '80ms', now + index * 0.1);
       });
 
       setTimeout(() => {
         setIsPlayingSound(false);
+        synthRef.current = null;
       }, 4000);
 
     } catch (e) {
@@ -156,13 +181,12 @@ export default function NormiePage() {
           <div className="glass-card" style={{ padding: '0', overflow: 'hidden' }}>
             <img src={normie.imageUrl} alt={normie.name} style={{ width: '100%', aspectRatio: '1/1', objectFit: 'cover', imageRendering: 'pixelated' }} />
             <div style={{ padding: '20px', textAlign: 'center' }}>
-              <button 
-                className="btn btn-ghost" 
-                style={{ width: '100%', justifyContent: 'center', marginBottom: '16px', border: '1px solid var(--accent-cyan)', color: 'var(--accent-cyan)' }}
+              <button
+                className="btn btn-ghost"
+                style={{ width: '100%', justifyContent: 'center', marginBottom: '16px', border: `1px solid ${isPlayingSound ? 'var(--accent-red)' : 'var(--accent-cyan)'}`, color: isPlayingSound ? 'var(--accent-red)' : 'var(--accent-cyan)', transition: 'all 0.2s' }}
                 onClick={playBitmapSoundscape}
-                disabled={isPlayingSound}
               >
-                {isPlayingSound ? '🎵 Playing...' : '🎵 Play Sound'}
+                {isPlayingSound ? '⏹️ Stop Sound' : '🎵 Play Sound'}
               </button>
               <h1 style={{ fontSize: '1.2rem', fontWeight: 800, marginBottom: '4px' }}>{normie.nftName}</h1>
               <div style={{ color: 'var(--text-muted)', fontSize: '0.85rem', marginBottom: '16px' }}>{normie.name}</div>
