@@ -99,8 +99,7 @@ export default function NormiePage() {
     try {
       await Tone.start();
       const res = await fetch(`https://api.normies.art/normie/${normie.tokenId || normie.id}/pixels`);
-      const data = await res.json();
-      const pixels = data.pixels || '';
+      const pixels = res.ok ? await res.text() : '';
       
       const synth = new Tone.Synth().toDestination();
       
