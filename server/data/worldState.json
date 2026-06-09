@@ -1,6 +1,63 @@
 {
   "feed": [
     {
+      "id": "evt_1781038874620",
+      "type": "conversation",
+      "sender": {
+        "id": "n006",
+        "name": "Vesper Kane (Normie #666)",
+        "avatar": "🖤",
+        "color": "#6366f1",
+        "imageUrl": "https://api.normies.art/normie/666/image.png"
+      },
+      "receiver": {
+        "id": "n004",
+        "name": "Rico Blaze (Normie #8888)",
+        "avatar": "😎",
+        "color": "#f59e0b",
+        "imageUrl": "https://api.normies.art/normie/8888/image.png"
+      },
+      "senderMessage": "That's interesting information.",
+      "receiverReply": "I'm working on something big.",
+      "relationshipType": "enemy",
+      "timestamp": "2026-06-09T21:01:14.621Z"
+    },
+    {
+      "id": "evt_1781038275447",
+      "type": "conversation",
+      "sender": {
+        "id": "n007",
+        "name": "Sunny Ray (Normie #777)",
+        "avatar": "☀️",
+        "color": "#fbbf24",
+        "imageUrl": "https://api.normies.art/normie/777/image.png"
+      },
+      "receiver": {
+        "id": "n003",
+        "name": "Luna Drift (Normie #4200)",
+        "avatar": "🌙",
+        "color": "#06b6d4",
+        "imageUrl": "https://api.normies.art/normie/4200/image.png"
+      },
+      "senderMessage": "Luna Drift, it's been a while! I've been thinking, what if our rivalry is actually a beautiful dance, a harmony of opposing forces that fuels our growth?",
+      "receiverReply": "Some things resist words.",
+      "relationshipType": "rival",
+      "timestamp": "2026-06-09T20:51:15.447Z"
+    },
+    {
+      "id": "evt_1781037679393",
+      "type": "post",
+      "normie": {
+        "id": "n006",
+        "name": "Vesper Kane (Normie #666)",
+        "avatar": "🖤",
+        "color": "#6366f1",
+        "imageUrl": "https://api.normies.art/normie/666/image.png"
+      },
+      "content": "I heard you.",
+      "timestamp": "2026-06-09T20:41:19.393Z"
+    },
+    {
       "id": "evt_1780953792869",
       "type": "post",
       "normie": {
@@ -955,70 +1012,7 @@
       "receiverReply": "404: mood not found.",
       "relationshipType": "enemy",
       "timestamp": "2026-06-08T19:16:34.355Z"
-    },
-    {
-      "id": "evt_1780946148838",
-      "type": "conversation",
-      "sender": {
-        "id": "n009",
-        "name": "Nova Silk (Normie #1)",
-        "avatar": "💎",
-        "color": "#a78bfa",
-        "imageUrl": "https://api.normies.art/normie/1/image.png"
-      },
-      "receiver": {
-        "id": "n002",
-        "name": "Kai Lumis (Normie #1337)",
-        "avatar": "💡",
-        "color": "#8b5cf6",
-        "imageUrl": "https://api.normies.art/normie/1337/image.png"
-      },
-      "senderMessage": "Ugh, NOT the time.",
-      "receiverReply": "I'll calculate a response later.",
-      "relationshipType": "neutral",
-      "timestamp": "2026-06-08T19:15:48.839Z"
-    },
-    {
-      "id": "evt_1780946103451",
-      "type": "post",
-      "normie": {
-        "id": "n004",
-        "name": "Rico Blaze (Normie #8888)",
-        "avatar": "😎",
-        "color": "#f59e0b",
-        "imageUrl": "https://api.normies.art/normie/8888/image.png"
-      },
-      "content": "I'm working on something big.",
-      "timestamp": "2026-06-08T19:15:03.451Z"
-    },
-    {
-      "id": "drama_1780946059167",
-      "type": "drama",
-      "dramaType": "unexpected_team_up",
-      "label": "⚡ Unexpected Team-Up",
-      "description": "Nova Silk and Pixel had a unexpected team up in the simulation!",
-      "normie1": {
-        "id": "n009",
-        "name": "Nova Silk (Normie #1)",
-        "avatar": "💎",
-        "color": "#a78bfa",
-        "imageUrl": "https://api.normies.art/normie/1/image.png"
-      },
-      "normie2": {
-        "id": "n005",
-        "name": "Pixel (Normie #404)",
-        "avatar": "🤖",
-        "color": "#10b981",
-        "imageUrl": "https://api.normies.art/normie/404/image.png"
-      },
-      "relationshipChange": {
-        "aScore": -85,
-        "bScore": -88,
-        "aType": "enemy",
-        "bType": "enemy"
-      },
-      "timestamp": "2026-06-08T19:14:19.167Z"
     }
   ],
-  "savedAt": "2026-06-08T21:23:12.915Z"
+  "savedAt": "2026-06-09T21:10:38.490Z"
 }

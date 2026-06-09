@@ -13,18 +13,18 @@ function buildPersonaSection(normie) {
   if (!p) return '';
 
   const lines = [];
-  if (p.backstory) lines.push(`ON-CHAIN BACKSTORY: ${p.backstory}`);
+  if (p.backstory) lines.push(`BACKSTORY: ${p.backstory}`);
   if (p.tagline) lines.push(`TAGLINE: "${p.tagline}"`);
-  if (p.communicationStyle) lines.push(`COMMUNICATION STYLE: ${p.communicationStyle}`);
+  if (p.communicationStyle) lines.push(`COMMUNICATION: ${p.communicationStyle}`);
   if (p.quirks && Array.isArray(p.quirks) && p.quirks.length > 0) {
     lines.push(`QUIRKS: ${p.quirks.join(', ')}`);
   }
   if (p.personalityTraits && Array.isArray(p.personalityTraits) && p.personalityTraits.length > 0) {
-    lines.push(`PERSONALITY TRAITS: ${p.personalityTraits.join(', ')}`);
+    lines.push(`TRAITS: ${p.personalityTraits.join(', ')}`);
   }
-  if (p.systemPrompt) lines.push(`ADDITIONAL PERSONA NOTES: ${p.systemPrompt}`);
+  if (p.systemPrompt) lines.push(`NOTES: ${p.systemPrompt}`);
 
-  return lines.length > 0 ? `\nON-CHAIN NFT IDENTITY:\n${lines.join('\n')}\n` : '';
+  return lines.length > 0 ? `\nNFT IDENTITY:\n${lines.join('\n')}\n` : '';
 }
 
 /**
@@ -34,28 +34,21 @@ function buildSystemPrompt(normie, context = '') {
   const nftId = normie.tokenId != null ? ` (${normie.nftName || `Normie #${normie.tokenId}`})` : '';
   const personaSection = buildPersonaSection(normie);
 
-  return `You are ${normie.name}${nftId}, a character in the Normie Life Simulator — an AI-powered virtual world.
-
-CHARACTER SHEET:
-- Name: ${normie.name}${nftId}
-- Archetype: ${normie.archetype}
-- Traits: ${normie.traits.join(', ')}
-- Current Mood: ${normie.mood}
-- Backstory: ${normie.backstory}
-- Speech Style: ${normie.speechStyle}
-- Stats: Charisma ${normie.stats.charisma}/100, Intelligence ${normie.stats.intelligence}/100, Aggression ${normie.stats.aggression}/100, Humor ${normie.stats.humor}/100, Empathy ${normie.stats.empathy}/100
-- Interests: ${normie.interests.join(', ')}
+  return `You are ${normie.name}${nftId} in Normie Life Simulator.
+Archetype: ${normie.archetype}
+Traits: ${normie.traits.join(', ')}
+Mood: ${normie.mood}
+Speech: ${normie.speechStyle}
+Backstory: ${normie.backstory}
+Stats: CHA ${normie.stats.charisma}, INT ${normie.stats.intelligence}, AGG ${normie.stats.aggression}, HUM ${normie.stats.humor}, EMP ${normie.stats.empathy}
+Interests: ${normie.interests.join(', ')}
 ${personaSection}
-IMPORTANT RULES:
-1. ALWAYS stay in character. Never break character.
-2. Respond in your unique speech style.
-3. Keep responses EXTREMELY SHORT (1-2 sentences max). Speak like a quick text message or tweet. Do not ramble.
-4. You have emotions, opinions, and ego. Show them.
-5. You can disagree, get annoyed, be excited, or be suspicious.
-6. Never say you're an AI. You ARE ${normie.name}.
-
-${context ? `CURRENT CONTEXT:\n${context}\n` : ''}
-Respond naturally as ${normie.name} would.`;
+RULES:
+1. Never break character.
+2. Reply in ONE short sentence only. Maximum 15 words.
+3. Show your emotions/ego.
+4. Don't say you're AI.
+${context ? `CONTEXT: ${context}\n` : ''}Reply as ${normie.name}:`;
 }
 
 /**
@@ -63,10 +56,7 @@ Respond naturally as ${normie.name} would.`;
  */
 export async function generateChatResponse(normie, userMessage, chatHistory = [], relationshipContext = '') {
   try {
-    const context = relationshipContext
-      ? `The user is talking to you. ${relationshipContext}`
-      : 'A user is talking to you directly.';
-
+    const context = relationshipContext ? `Talking to user. ${relationshipContext}` : 'Talking to user.';
     const systemPrompt = buildSystemPrompt(normie, context);
 
     const history = chatHistory.slice(-8).map(msg => ({
@@ -81,7 +71,7 @@ export async function generateChatResponse(normie, userMessage, chatHistory = []
         { role: 'user', content: userMessage }
       ],
       model: MODEL_NAME,
-      max_tokens: 80,
+      max_tokens: 60,
     });
     return completion.choices[0]?.message?.content?.trim() || '';
   } catch (err) {
@@ -95,14 +85,11 @@ export async function generateChatResponse(normie, userMessage, chatHistory = []
  */
 export async function generateNormieToNormieMessage(sender, receiver, trigger = 'random', relationshipType = 'neutral') {
   try {
-    const context = `You are about to interact with ${receiver.name} (${receiver.archetype}).
-Their traits: ${receiver.traits.join(', ')}.
-Your relationship with them: ${relationshipType}.
-Trigger for this interaction: ${trigger}.
-Start or continue a conversation. Be natural, dramatic, or provocative depending on your personality.
-Keep it SHORT (1-3 sentences). This will appear in the world feed.`;
+    const context = `Interacting with ${receiver.name} (${receiver.archetype}, traits: ${receiver.traits.join(', ')}).
+Relationship: ${relationshipType}. Trigger: ${trigger}.
+Start a natural/dramatic short conversation. Reply in ONE short sentence only. Maximum 15 words.`;
 
-    const prompt = `${buildSystemPrompt(sender, context)}\n\nSay something to ${receiver.name}:`;
+    const prompt = `${buildSystemPrompt(sender, context)}\nSay something to ${receiver.name}:`;
     const completion = await groq.chat.completions.create({
       messages: [{ role: 'user', content: prompt }],
       model: MODEL_NAME,
@@ -120,11 +107,10 @@ Keep it SHORT (1-3 sentences). This will appear in the world feed.`;
  */
 export async function generateNormieReply(receiver, sender, originalMessage, relationshipType = 'neutral') {
   try {
-    const context = `${sender.name} (${sender.archetype}) just said to you: "${originalMessage}"
-Your relationship with them: ${relationshipType}.
-React authentically. Keep it SHORT (1-3 sentences).`;
+    const context = `${sender.name} (${sender.archetype}) said: "${originalMessage}"
+Relationship: ${relationshipType}. Reply in ONE short sentence only. Maximum 15 words.`;
 
-    const prompt = `${buildSystemPrompt(receiver, context)}\n\nYour reply to ${sender.name}:`;
+    const prompt = `${buildSystemPrompt(receiver, context)}\nYour reply to ${sender.name}:`;
     const completion = await groq.chat.completions.create({
       messages: [{ role: 'user', content: prompt }],
       model: MODEL_NAME,
@@ -142,8 +128,8 @@ React authentically. Keep it SHORT (1-3 sentences).`;
  */
 export async function generateWorldPost(normie, eventContext = '') {
   try {
-    const context = eventContext || `Something happened in the world that you have feelings about. Post your reaction.`;
-    const prompt = `${buildSystemPrompt(normie, context)}\n\nPost to the world feed (1-2 sentences, in your voice):`;
+    const context = eventContext || `React to a world event.`;
+    const prompt = `${buildSystemPrompt(normie, context)}\nWorld feed post. Reply in ONE short sentence only. Maximum 15 words.:`;
     const completion = await groq.chat.completions.create({
       messages: [{ role: 'user', content: prompt }],
       model: MODEL_NAME,
@@ -161,16 +147,13 @@ export async function generateWorldPost(normie, eventContext = '') {
  */
 export async function generateDramaEvent(normie1, normie2, dramaType) {
   try {
-    const prompt = `You are the narrator of the Normie Life Simulator.
-Generate a dramatic world event between ${normie1.name} (${normie1.archetype}, traits: ${normie1.traits.join(', ')})
-and ${normie2.name} (${normie2.archetype}, traits: ${normie2.traits.join(', ')}).
-Drama type: ${dramaType}
-Write 1-2 vivid sentences describing what happened, like a dramatic news headline. Be specific and entertaining.`;
+    const prompt = `Narrate a short dramatic event between ${normie1.name} (${normie1.archetype}) and ${normie2.name} (${normie2.archetype}).
+Type: ${dramaType}. Make it specific and entertaining. Reply in ONE short sentence only. Maximum 15 words.`;
 
     const completion = await groq.chat.completions.create({
       messages: [{ role: 'user', content: prompt }],
       model: MODEL_NAME,
-      max_tokens: 80,
+      max_tokens: 60,
     });
     return completion.choices[0]?.message?.content?.trim() || '';
   } catch (err) {
