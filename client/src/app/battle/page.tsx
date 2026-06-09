@@ -1,6 +1,5 @@
 'use client';
 import { useEffect, useState, useRef } from 'react';
-import DramaAlert from '@/components/DramaAlert';
 import { useWorldStore } from '@/store/useWorldStore';
 
 interface CombatantStats {
@@ -45,8 +44,7 @@ export default function BattlePage() {
     const pixelsRes = await fetch(`https://api.normies.art/normie/${normie.tokenId || normie.id}/pixels`);
     let pixels = '';
     if (pixelsRes.ok) {
-      const data = await pixelsRes.json();
-      pixels = data.pixels || '';
+      pixels = await pixelsRes.text();
     }
     
     const infoRes = await fetch(`https://api.normies.art/normie/${normie.tokenId || normie.id}/canvas/info`);
@@ -165,7 +163,6 @@ export default function BattlePage() {
 
   return (
     <div className="container" style={{ paddingTop: '32px', paddingBottom: '48px' }}>
-      <DramaAlert />
       
       <div className="page-header" style={{ textAlign: 'center' }}>
         <h1 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', marginBottom: '16px' }}>

@@ -1,6 +1,5 @@
 'use client';
 import { useEffect, useState } from 'react';
-import DramaAlert from '@/components/DramaAlert';
 
 interface BurnedToken {
   tokenId: number;
@@ -46,10 +45,10 @@ export default function GraveyardPage() {
           const detail = await detailRes.json();
           detailedTokens.push({
             tokenId: detail.tokenId || tokenId,
-            burnedBy: detail.burnedBy || detail.burner || 'Unknown',
-            pixels: detail.pixelCount || detail.pixels || 0,
+            burnedBy: detail.commitment?.owner || 'Unknown',
+            pixels: detail.commitment?.pixelCounts ? JSON.parse(detail.commitment.pixelCounts)[0] : 0,
             timestamp: detail.timestamp || new Date().toISOString(),
-            commitId: detail.commitId || detail.commit || 'Unknown',
+            commitId: detail.commitment?.commitId || 'Unknown',
           });
         } catch (e) {
           console.error(`Failed to fetch details for ${tokenId}`);
@@ -77,7 +76,6 @@ export default function GraveyardPage() {
 
   return (
     <div className="container" style={{ paddingTop: '32px', paddingBottom: '48px' }}>
-      <DramaAlert />
       
       <div className="page-header" style={{ textAlign: 'center' }}>
         <h1 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', marginBottom: '16px' }}>
@@ -89,10 +87,10 @@ export default function GraveyardPage() {
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '24px', marginTop: '32px' }}>
-        {burnedTokens.map((token) => {
+        {burnedTokens.map((token, index) => {
           const glowRadius = Math.max(10, Math.min(100, token.pixels / 20));
           return (
-            <div key={token.tokenId} className="glass-card" style={{ 
+            <div key={`${token.tokenId}-${index}`} className="glass-card" style={{ 
               padding: '20px', 
               textAlign: 'center',
               boxShadow: `0 0 ${glowRadius}px rgba(127, 119, 221, 0.4)`,
@@ -127,7 +125,7 @@ export default function GraveyardPage() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                   <span>RIP:</span>
-                  <span style={{ color: 'var(--text-primary)' }}>{new Date(token.timestamp).toLocaleDateString()}</span>
+                  <span style={{ color: 'var(--text-primary)' }}>{new Date(parseInt(token.timestamp) * 1000).toLocaleDateString()}</span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                   <span>Pixel Count:</span>
