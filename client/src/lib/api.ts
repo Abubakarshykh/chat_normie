@@ -43,4 +43,6 @@ export const api = {
   boostReputation: (normieId: string, amount: number) =>
     apiFetch<any>('/api/god/boost-reputation', { method: 'POST', body: JSON.stringify({ normieId, amount }) }),
   fastTick: () => apiFetch<any>('/api/god/fast-tick', { method: 'POST' }),
+  changeNormie: (normieId: string, tokenId: number) =>
+    apiFetch<any>('/api/god/change-normie', { method: 'POST', body: JSON.stringify({ normieId, tokenId }) }),
 };

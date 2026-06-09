@@ -27,7 +27,7 @@ export default function BattlePage() {
   const [rightId, setRightId] = useState<string>('');
   const [leftStats, setLeftStats] = useState<CombatantStats | null>(null);
   const [rightStats, setRightStats] = useState<CombatantStats | null>(null);
-  
+
   const [logs, setLogs] = useState<BattleLog[]>([]);
   const [isBattling, setIsBattling] = useState(false);
   const [winner, setWinner] = useState<'left' | 'right' | 'draw' | null>(null);
@@ -46,7 +46,7 @@ export default function BattlePage() {
     if (pixelsRes.ok) {
       pixels = await pixelsRes.text();
     }
-    
+
     const infoRes = await fetch(`https://api.normies.art/normie/${normie.tokenId || normie.id}/canvas/info`);
     let isCustomized = false;
     if (infoRes.ok) {
@@ -89,11 +89,11 @@ export default function BattlePage() {
     setLoading(true);
     setLogs([]);
     setWinner(null);
-    
+
     try {
       const leftNormie = normies.find(n => n.id === leftId);
       const rightNormie = normies.find(n => n.id === rightId);
-      
+
       if (!leftNormie || !rightNormie) throw new Error("Normie not found");
 
       const lStats = await calculateStats(leftNormie);
@@ -102,9 +102,9 @@ export default function BattlePage() {
 
       setLeftStats(lStats);
       setRightStats(rStats);
-      
+
       setIsBattling(true);
-      
+
       // Simulate Battle
       let lHealth = lStats.health;
       let rHealth = rStats.health;
@@ -131,7 +131,7 @@ export default function BattlePage() {
       for (let i = 0; i < battleLogs.length; i++) {
         await new Promise(r => setTimeout(r, 600)); // 600ms per log
         setLogs(prev => [...prev, battleLogs[i]]);
-        
+
         if (battleLogs[i].attacker === 'left') {
           setRightStats(prev => prev ? { ...prev, health: Math.max(0, prev.health - battleLogs[i].damage) } : prev);
         } else {
@@ -163,7 +163,7 @@ export default function BattlePage() {
 
   return (
     <div className="container" style={{ paddingTop: '32px', paddingBottom: '48px' }}>
-      
+
       <div className="page-header" style={{ textAlign: 'center' }}>
         <h1 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.5rem)', marginBottom: '16px' }}>
           ⚔️ Pixel <span className="gradient-text-drama">Wars</span>
@@ -181,12 +181,12 @@ export default function BattlePage() {
               <select className="input-field" value={leftId} onChange={(e) => setLeftId(e.target.value)}>
                 {normies.map(n => <option key={n.id} value={n.id}>{n.avatar} {n.name}</option>)}
               </select>
-              <div style={{ 
+              <div style={{
                 height: '200px', borderRadius: '12px', background: 'rgba(255,255,255,0.05)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center'
               }}>
                 {leftId && normies.find(n => n.id === leftId)?.imageUrl ? (
-                  <img src={normies.find(n => n.id === leftId)?.imageUrl} alt="Normie 1" style={{ height: '100%', imageRendering: 'pixelated' }} />
+                  <img src={normies.find(n => n.id === leftId)?.imageUrl ?? ''} alt="Normie 1" style={{ height: '100%', imageRendering: 'pixelated' }} />
                 ) : <span style={{ fontSize: '4rem' }}>{normies.find(n => n.id === leftId)?.avatar}</span>}
               </div>
             </div>
@@ -198,17 +198,17 @@ export default function BattlePage() {
               <select className="input-field" value={rightId} onChange={(e) => setRightId(e.target.value)}>
                 {normies.map(n => <option key={n.id} value={n.id}>{n.avatar} {n.name}</option>)}
               </select>
-              <div style={{ 
+              <div style={{
                 height: '200px', borderRadius: '12px', background: 'rgba(255,255,255,0.05)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center'
               }}>
                 {rightId && normies.find(n => n.id === rightId)?.imageUrl ? (
-                  <img src={normies.find(n => n.id === rightId)?.imageUrl} alt="Normie 2" style={{ height: '100%', imageRendering: 'pixelated' }} />
+                  <img src={normies.find(n => n.id === rightId)?.imageUrl ?? ''} alt="Normie 2" style={{ height: '100%', imageRendering: 'pixelated' }} />
                 ) : <span style={{ fontSize: '4rem' }}>{normies.find(n => n.id === rightId)?.avatar}</span>}
               </div>
             </div>
           </div>
-          
+
           <div style={{ textAlign: 'center', marginTop: '32px' }}>
             <button className="btn btn-danger btn-lg" onClick={startBattle} disabled={loading}>
               {loading ? 'Initializing Battle...' : '⚔️ START BATTLE ⚔️'}
@@ -219,7 +219,7 @@ export default function BattlePage() {
         <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
           {/* Battle Arena */}
           <div className="glass-card" style={{ padding: '40px 20px', marginBottom: '24px', border: winner ? `2px solid ${winner === 'left' ? leftStats.color : rightStats.color}` : '1px solid var(--glass-border)' }}>
-            
+
             {winner && (
               <div style={{ textAlign: 'center', marginBottom: '24px', animation: 'slideInUp 0.5s ease' }}>
                 <h2 style={{ fontSize: '2rem', color: winner === 'left' ? leftStats.color : rightStats.color, fontWeight: 800 }}>
@@ -229,7 +229,7 @@ export default function BattlePage() {
             )}
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', gap: '40px', alignItems: 'center' }}>
-              
+
               {/* Left Fighter */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', alignItems: 'center' }}>
                 <div style={{ fontSize: '1.2rem', fontWeight: 700, color: leftStats.color }}>{leftStats.name}</div>
@@ -281,8 +281,8 @@ export default function BattlePage() {
             <h3 style={{ marginBottom: '16px', fontSize: '1.1rem' }}>Battle Log</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
               {logs.map((log, i) => (
-                <div key={i} style={{ 
-                  padding: '8px 12px', borderRadius: '8px', 
+                <div key={i} style={{
+                  padding: '8px 12px', borderRadius: '8px',
                   background: log.attacker === 'left' ? `${leftStats.color}15` : `${rightStats.color}15`,
                   borderLeft: `4px solid ${log.attacker === 'left' ? leftStats.color : rightStats.color}`,
                   animation: 'fadeIn 0.3s ease'

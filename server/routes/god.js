@@ -65,4 +65,16 @@ router.post('/fast-tick', async (req, res) => {
   }
 });
 
+// POST /api/god/change-normie — swap a Normie's NFT identity
+router.post('/change-normie', async (req, res) => {
+  try {
+    const { normieId, tokenId } = req.body;
+    if (!normieId || tokenId == null) return res.status(400).json({ error: 'normieId and tokenId required' });
+    const result = await godModeAction('change_normie', { normieId, tokenId });
+    res.json(result);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 export default router;

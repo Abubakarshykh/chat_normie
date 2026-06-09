@@ -7,6 +7,16 @@ import ChatWindow from '@/components/ChatWindow';
 import DramaAlert from '@/components/DramaAlert';
 import * as Tone from 'tone';
 
+// ── Global singleton — only ONE sound can ever play app-wide ──
+let _globalSynth: Tone.Synth | null = null;
+function stopAllAudio() {
+  try {
+    Tone.Transport.stop();
+    Tone.Transport.cancel();
+    if (_globalSynth) { _globalSynth.dispose(); _globalSynth = null; }
+  } catch { /* already disposed */ }
+}
+
 const STAT_COLORS: Record<string, string> = {
   charisma: '#ec4899', intelligence: '#8b5cf6',
   aggression: '#ef4444', humor: '#f59e0b', empathy: '#10b981',
@@ -87,37 +97,39 @@ export default function NormiePage() {
   const [activeTab, setActiveTab] = useState<'chat' | 'relationships' | 'ancestry'>('chat');
   const [isPlayingSound, setIsPlayingSound] = useState(false);
   const synthRef = useRef<Tone.Synth | null>(null);
+  const isOwnerRef = useRef<boolean>(false);
 
   useEffect(() => {
     if (!id) return;
     api.getNormie(id).then(data => { setNormie(data); setLoading(false); }).catch(() => setLoading(false));
+    // Stop any playing audio when navigating to a different Normie
+    stopAllAudio();
+    setIsPlayingSound(false);
+    isOwnerRef.current = false;
   }, [id]);
 
   // Stop audio when component unmounts
   useEffect(() => {
     return () => {
-      Tone.Transport.stop();
-      Tone.Transport.cancel();
-      if (synthRef.current) {
-        synthRef.current.dispose();
-        synthRef.current = null;
-      }
+      stopAllAudio();
+      setIsPlayingSound(false);
+      isOwnerRef.current = false;
     };
   }, []);
 
   const stopSound = () => {
-    Tone.Transport.stop();
-    Tone.Transport.cancel();
-    if (synthRef.current) {
-      synthRef.current.dispose();
-      synthRef.current = null;
-    }
+    stopAllAudio();
+    isOwnerRef.current = false;
     setIsPlayingSound(false);
   };
 
   const playBitmapSoundscape = async () => {
     if (isPlayingSound) { stopSound(); return; }
+
+    // Always stop whatever is globally playing before starting new sound
+    stopAllAudio();
     setIsPlayingSound(true);
+    isOwnerRef.current = true;
 
     try {
       await Tone.start();
@@ -125,7 +137,7 @@ export default function NormiePage() {
       const pixels = res.ok ? await res.text() : '';
 
       const synth = new Tone.Synth().toDestination();
-      synthRef.current = synth;
+      _globalSynth = synth;
 
       const pixelString = pixels.length === 1600 ? pixels : Array(1600).fill(0).map(() => Math.random() > 0.5 ? '1' : '0').join('');
       const rows = [];
@@ -141,13 +153,18 @@ export default function NormiePage() {
       });
 
       setTimeout(() => {
-        setIsPlayingSound(false);
-        synthRef.current = null;
+        if (isOwnerRef.current) {
+          _globalSynth = null;
+          setIsPlayingSound(false);
+          isOwnerRef.current = false;
+        }
       }, 4000);
 
     } catch (e) {
       console.error(e);
+      stopAllAudio();
       setIsPlayingSound(false);
+      isOwnerRef.current = false;
     }
   };
 
