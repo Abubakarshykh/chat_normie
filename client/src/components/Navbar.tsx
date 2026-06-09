@@ -6,6 +6,8 @@ import { useWorldStore } from '@/store/useWorldStore';
 const NAV_LINKS = [
   { href: '/', label: '🌍 World Feed' },
   { href: '/world', label: '🗺️ Overview' },
+  { href: '/graveyard', label: '⚰️ Graveyard' },
+  { href: '/battle', label: '⚔️ Battle' },
   { href: '/normode', label: '👑 Normode' },
 ];
 
