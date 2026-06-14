@@ -1,5 +1,7 @@
 'use client';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
+import FightingBoard, { HitFlash } from '@/components/FightingBoard';
+import GameModal from '@/components/GameModal';
 import { useWorldStore } from '@/store/useWorldStore';
 
 interface CombatantStats {
@@ -12,6 +14,7 @@ interface CombatantStats {
   attack: number;
   defense: number;
   isCustomized: boolean;
+  pixels: string;
 }
 
 interface BattleLog {
@@ -23,19 +26,26 @@ interface BattleLog {
 
 export default function BattlePage() {
   const { normies } = useWorldStore();
-  const [leftId, setLeftId] = useState<string>('');
-  const [rightId, setRightId] = useState<string>('');
-  const [leftStats, setLeftStats] = useState<CombatantStats | null>(null);
+  const [leftId, setLeftId]     = useState<string>('');
+  const [rightId, setRightId]   = useState<string>('');
+  const [leftStats, setLeftStats]   = useState<CombatantStats | null>(null);
   const [rightStats, setRightStats] = useState<CombatantStats | null>(null);
 
-  const [logs, setLogs] = useState<BattleLog[]>([]);
+  const [logs, setLogs]             = useState<BattleLog[]>([]);
   const [isBattling, setIsBattling] = useState(false);
-  const [winner, setWinner] = useState<'left' | 'right' | 'draw' | null>(null);
-  const [loading, setLoading] = useState(false);
+  const [winner, setWinner]         = useState<'left' | 'right' | 'draw' | null>(null);
+  const [showBomb, setShowBomb]     = useState(false);
+  const [loading, setLoading]       = useState(false);
+
+  // Animation state
+  const [leftAnim,  setLeftAnim]  = useState<'idle'|'lunge'|'hit'>('idle');
+  const [rightAnim, setRightAnim] = useState<'idle'|'lunge'|'hit'>('idle');
+  const [leftHit,   setLeftHit]   = useState<HitFlash | null>(null);
+  const [rightHit,  setRightHit]  = useState<HitFlash | null>(null);
 
   useEffect(() => {
     if (normies.length >= 2) {
-      if (!leftId) setLeftId(normies[0].id);
+      if (!leftId)  setLeftId(normies[0].id);
       if (!rightId) setRightId(normies[1].id);
     }
   }, [normies]);
@@ -43,83 +53,66 @@ export default function BattlePage() {
   const calculateStats = async (normie: any): Promise<CombatantStats> => {
     const pixelsRes = await fetch(`https://api.normies.art/normie/${normie.tokenId || normie.id}/pixels`);
     let pixels = '';
-    if (pixelsRes.ok) {
-      pixels = await pixelsRes.text();
-    }
+    if (pixelsRes.ok) pixels = await pixelsRes.text();
 
     const infoRes = await fetch(`https://api.normies.art/normie/${normie.tokenId || normie.id}/canvas/info`);
     let isCustomized = false;
-    if (infoRes.ok) {
-      const data = await infoRes.json();
-      isCustomized = !!data.customized;
-    }
+    if (infoRes.ok) { const d = await infoRes.json(); isCustomized = !!d.customized; }
 
-    // fallback if pixel data missing
-    if (pixels.length < 1600) {
+    if (pixels.length < 1600)
       pixels = Array(1600).fill(0).map(() => Math.random() > 0.5 ? '1' : '0').join('');
-    }
 
-    const health = (pixels.match(/1/g) || []).length;
-    let attack = (pixels.substring(0, 800).match(/1/g) || []).length;
+    const health  = (pixels.match(/1/g) || []).length;
+    let attack    = (pixels.substring(0, 800).match(/1/g) || []).length;
     const defense = (pixels.substring(800).match(/1/g) || []).length;
-
-    if (isCustomized) {
-      attack = Math.floor(attack * 1.2);
-    }
+    if (isCustomized) attack = Math.floor(attack * 1.2);
 
     return {
-      id: normie.id,
-      name: normie.name,
+      id: normie.id, name: normie.name,
       imageUrl: normie.imageUrl || `https://api.normies.art/normie/${normie.tokenId || normie.id}/image.png`,
       color: normie.color || '#7c3aed',
-      maxHealth: health,
-      health,
-      attack,
-      defense,
-      isCustomized,
+      maxHealth: health, health, attack, defense, isCustomized, pixels,
     };
   };
 
   const startBattle = async () => {
-    if (leftId === rightId) {
-      alert("Please select two different Normies to battle!");
-      return;
-    }
-
+    if (leftId === rightId) { alert('Please select two different Normies!'); return; }
     setLoading(true);
     setLogs([]);
     setWinner(null);
+    setLeftAnim('idle'); setRightAnim('idle');
+    setLeftHit(null);    setRightHit(null);
 
     try {
-      const leftNormie = normies.find(n => n.id === leftId);
+      const leftNormie  = normies.find(n => n.id === leftId);
       const rightNormie = normies.find(n => n.id === rightId);
-
-      if (!leftNormie || !rightNormie) throw new Error("Normie not found");
+      if (!leftNormie || !rightNormie) throw new Error('Normie not found');
 
       const lStats = await calculateStats(leftNormie);
-      await new Promise(r => setTimeout(r, 100)); // Delay for rate limit
+      await new Promise(r => setTimeout(r, 100));
       const rStats = await calculateStats(rightNormie);
 
       setLeftStats(lStats);
       setRightStats(rStats);
-
       setIsBattling(true);
 
-      // Simulate Battle
+      // --- Collect all combat logs instantly ---
       let lHealth = lStats.health;
       let rHealth = rStats.health;
       let round = 1;
+      let turn: 'left'|'right' = 'left';
       const battleLogs: BattleLog[] = [];
-      let turn: 'left' | 'right' = Math.random() > 0.5 ? 'left' : 'right';
 
-      while (lHealth > 0 && rHealth > 0 && round <= 50) {
+      while (lHealth > 0 && rHealth > 0 && round <= 100) {
         if (turn === 'left') {
-          const dmg = Math.max(1, lStats.attack - rStats.defense);
+          const minDmg = Math.max(1, Math.ceil(rStats.maxHealth * 0.02));
+          const dmg = Math.max(minDmg, lStats.attack - rStats.defense);
           rHealth -= dmg;
           battleLogs.push({ round, message: `${lStats.name} attacks for ${dmg} damage!`, attacker: 'left', damage: dmg });
           turn = 'right';
         } else {
-          const dmg = Math.max(1, rStats.attack - lStats.defense);
+          const minDmg = Math.max(1, Math.ceil(lStats.maxHealth * 0.02));
+          const dmg = Math.max(minDmg, rStats.attack - lStats.defense);
           lHealth -= dmg;
           battleLogs.push({ round, message: `${rStats.name} attacks for ${dmg} damage!`, attacker: 'right', damage: dmg });
           turn = 'left';
@@ -127,38 +120,67 @@ export default function BattlePage() {
         round++;
       }
 
-      // Animate logs
-      for (let i = 0; i < battleLogs.length; i++) {
-        await new Promise(r => setTimeout(r, 600)); // 600ms per log
-        setLogs(prev => [...prev, battleLogs[i]]);
+      // --- Replay with animations (target ≤8 s) ---
+      const perRound = Math.min(400, Math.max(100, 8000 / battleLogs.length));
+      let hitKey = 0;
+      let liveL = lStats.health;
+      let liveR = rStats.health;
 
-        if (battleLogs[i].attacker === 'left') {
-          setRightStats(prev => prev ? { ...prev, health: Math.max(0, prev.health - battleLogs[i].damage) } : prev);
+      for (let i = 0; i < battleLogs.length; i++) {
+        const log = battleLogs[i];
+        setLogs(prev => [...prev, log]);
+
+        // Attacker lunges
+        if (log.attacker === 'left') setLeftAnim('lunge');
+        else                          setRightAnim('lunge');
+
+        await new Promise(r => setTimeout(r, 120));
+
+        // Defender hit + health update
+        if (log.attacker === 'left') {
+          liveR = Math.max(0, liveR - log.damage);
+          setRightAnim('hit');
+          setRightHit({ damage: log.damage, key: ++hitKey });
+          setRightStats(prev => prev ? { ...prev, health: liveR } : prev);
         } else {
-          setLeftStats(prev => prev ? { ...prev, health: Math.max(0, prev.health - battleLogs[i].damage) } : prev);
+          liveL = Math.max(0, liveL - log.damage);
+          setLeftAnim('hit');
+          setLeftHit({ damage: log.damage, key: ++hitKey });
+          setLeftStats(prev => prev ? { ...prev, health: liveL } : prev);
         }
+
+        await new Promise(r => setTimeout(r, Math.max(50, perRound - 120)));
+
+        // Reset animations to idle
+        setLeftAnim('idle');
+        setRightAnim('idle');
       }
 
+      // Decide winner
+      const winSide: 'left'|'right'|'draw' =
+        liveL <= 0 ? 'right' : liveR <= 0 ? 'left' : liveL > liveR ? 'left' : 'right';
+      setWinner(winSide);
       setIsBattling(false);
-      if (lHealth <= 0 && rHealth <= 0) setWinner('draw');
-      else if (lHealth <= 0) setWinner('right');
-      else if (rHealth <= 0) setWinner('left');
-      else setWinner(lHealth > rHealth ? 'left' : 'right');
+      setLoading(false);
+
+      // Show modal after final animation settles
+      await new Promise(r => setTimeout(r, 700));
+      setShowBomb(true);
 
     } catch (e) {
       console.error(e);
-      alert("Failed to start battle. Check console for details.");
-    } finally {
+      alert('Failed to start battle. Check console for details.');
       setLoading(false);
       setIsBattling(false);
     }
   };
 
   const resetBattle = () => {
-    setLeftStats(null);
-    setRightStats(null);
-    setLogs([]);
-    setWinner(null);
+    setLeftStats(null);  setRightStats(null);
+    setLogs([]);         setWinner(null);
+    setShowBomb(false);
+    setLeftAnim('idle'); setRightAnim('idle');
+    setLeftHit(null);    setRightHit(null);
   };
 
   return (
@@ -169,42 +191,40 @@ export default function BattlePage() {
           ⚔️ Pixel <span className="gradient-text-drama">Wars</span>
         </h1>
         <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto' }}>
-          Two Normies enter. One leaves. Stats are derived directly from their 40x40 pixel bitmaps.
+          Two Normies enter. One leaves. Stats are derived directly from their 40×40 pixel bitmaps.
         </p>
       </div>
 
       {!leftStats || !rightStats ? (
+        /* ── Fighter Selection ── */
         <div className="glass-card" style={{ padding: '32px', maxWidth: '800px', margin: '0 auto' }}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', gap: '24px', alignItems: 'center' }}>
+
+            {/* Left picker */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               <h3 style={{ textAlign: 'center', color: 'var(--accent-purple)' }}>Fighter 1</h3>
-              <select className="input-field" value={leftId} onChange={(e) => setLeftId(e.target.value)}>
+              <select className="input-field" value={leftId} onChange={e => setLeftId(e.target.value)}>
                 {normies.map(n => <option key={n.id} value={n.id}>{n.avatar} {n.name}</option>)}
               </select>
-              <div style={{
-                height: '200px', borderRadius: '12px', background: 'rgba(255,255,255,0.05)',
-                display: 'flex', alignItems: 'center', justifyContent: 'center'
-              }}>
-                {leftId && normies.find(n => n.id === leftId)?.imageUrl ? (
-                  <img src={normies.find(n => n.id === leftId)?.imageUrl ?? ''} alt="Normie 1" style={{ height: '100%', imageRendering: 'pixelated' }} />
-                ) : <span style={{ fontSize: '4rem' }}>{normies.find(n => n.id === leftId)?.avatar}</span>}
+              <div style={{ height: '200px', borderRadius: '12px', background: 'rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                {leftId && normies.find(n => n.id === leftId)?.imageUrl
+                  ? <img src={normies.find(n => n.id === leftId)?.imageUrl ?? ''} alt="Normie 1" style={{ height: '100%', imageRendering: 'pixelated' }} />
+                  : <span style={{ fontSize: '4rem' }}>{normies.find(n => n.id === leftId)?.avatar}</span>}
               </div>
             </div>
 
             <div style={{ fontSize: '2.5rem', fontWeight: 800, color: 'var(--accent-red)' }}>VS</div>
 
+            {/* Right picker */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               <h3 style={{ textAlign: 'center', color: 'var(--accent-cyan)' }}>Fighter 2</h3>
-              <select className="input-field" value={rightId} onChange={(e) => setRightId(e.target.value)}>
+              <select className="input-field" value={rightId} onChange={e => setRightId(e.target.value)}>
                 {normies.map(n => <option key={n.id} value={n.id}>{n.avatar} {n.name}</option>)}
               </select>
-              <div style={{
-                height: '200px', borderRadius: '12px', background: 'rgba(255,255,255,0.05)',
-                display: 'flex', alignItems: 'center', justifyContent: 'center'
-              }}>
-                {rightId && normies.find(n => n.id === rightId)?.imageUrl ? (
-                  <img src={normies.find(n => n.id === rightId)?.imageUrl ?? ''} alt="Normie 2" style={{ height: '100%', imageRendering: 'pixelated' }} />
-                ) : <span style={{ fontSize: '4rem' }}>{normies.find(n => n.id === rightId)?.avatar}</span>}
+              <div style={{ height: '200px', borderRadius: '12px', background: 'rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                {rightId && normies.find(n => n.id === rightId)?.imageUrl
+                  ? <img src={normies.find(n => n.id === rightId)?.imageUrl ?? ''} alt="Normie 2" style={{ height: '100%', imageRendering: 'pixelated' }} />
+                  : <span style={{ fontSize: '4rem' }}>{normies.find(n => n.id === rightId)?.avatar}</span>}
               </div>
             </div>
           </div>
@@ -215,77 +235,77 @@ export default function BattlePage() {
             </button>
           </div>
         </div>
-      ) : (
-        <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
-          {/* Battle Arena */}
-          <div className="glass-card" style={{ padding: '40px 20px', marginBottom: '24px', border: winner ? `2px solid ${winner === 'left' ? leftStats.color : rightStats.color}` : '1px solid var(--glass-border)' }}>
 
+      ) : (
+        /* ── Battle Arena ── */
+        <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
+
+          {/* Animated arena */}
+          <div className="glass-card" style={{
+            padding: '24px 24px 16px',
+            marginBottom: '24px',
+            border: winner
+              ? `2px solid ${winner === 'left' ? leftStats.color : rightStats.color}`
+              : '1px solid var(--glass-border)',
+          }}>
+            {/* Winner banner */}
             {winner && (
-              <div style={{ textAlign: 'center', marginBottom: '24px', animation: 'slideInUp 0.5s ease' }}>
+              <div style={{ textAlign: 'center', marginBottom: '16px', animation: 'slideInUp 0.5s ease' }}>
                 <h2 style={{ fontSize: '2rem', color: winner === 'left' ? leftStats.color : rightStats.color, fontWeight: 800 }}>
-                  {winner === 'draw' ? 'IT\'S A DRAW!' : `${winner === 'left' ? leftStats.name : rightStats.name} WINS!`} 🏆
+                  {winner === 'draw' ? "IT'S A DRAW!" : `${winner === 'left' ? leftStats.name : rightStats.name} WINS!`} 🏆
                 </h2>
               </div>
             )}
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', gap: '40px', alignItems: 'center' }}>
+            {/* Fighting board */}
+            <FightingBoard
+              left={leftStats}   right={rightStats}
+              leftAnim={leftAnim}  rightAnim={rightAnim}
+              leftHit={leftHit}    rightHit={rightHit}
+            />
 
-              {/* Left Fighter */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', alignItems: 'center' }}>
-                <div style={{ fontSize: '1.2rem', fontWeight: 700, color: leftStats.color }}>{leftStats.name}</div>
-                <div style={{ width: '200px', height: '200px', background: 'rgba(0,0,0,0.5)', borderRadius: '16px', overflow: 'hidden', border: `4px solid ${leftStats.color}` }}>
-                  <img src={leftStats.imageUrl} style={{ width: '100%', height: '100%', objectFit: 'cover', imageRendering: 'pixelated', filter: leftStats.health <= 0 ? 'grayscale(100%)' : 'none' }} />
+            {/* Detail stats row */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', gap: '24px', alignItems: 'center', marginTop: '8px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8rem', fontWeight: 600 }}>
+                  <span>HP</span><span>{leftStats.health} / {leftStats.maxHealth}</span>
                 </div>
-                <div style={{ width: '100%', maxWidth: '200px' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8rem', marginBottom: '4px', fontWeight: 600 }}>
-                    <span>HP</span><span>{leftStats.health} / {leftStats.maxHealth}</span>
-                  </div>
-                  <div style={{ height: '12px', background: 'rgba(255,255,255,0.1)', borderRadius: '999px', overflow: 'hidden' }}>
-                    <div style={{ height: '100%', background: '#10b981', width: `${Math.max(0, (leftStats.health / leftStats.maxHealth) * 100)}%`, transition: 'width 0.3s ease' }} />
-                  </div>
+                <div style={{ height: '10px', background: 'rgba(255,255,255,0.1)', borderRadius: 999, overflow: 'hidden' }}>
+                  <div style={{ height: '100%', background: leftStats.health / leftStats.maxHealth < 0.25 ? '#ef4444' : '#10b981', width: `${Math.max(0, (leftStats.health / leftStats.maxHealth) * 100)}%`, transition: 'width 0.3s ease' }} />
                 </div>
-                <div style={{ display: 'flex', gap: '12px', fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-                  <span>🗡️ ATK: {leftStats.attack}</span>
-                  <span>🛡️ DEF: {leftStats.defense}</span>
+                <div style={{ display: 'flex', gap: '12px', fontSize: '0.78rem', color: 'var(--text-muted)' }}>
+                  <span>🗡️ {leftStats.attack}</span><span>🛡️ {leftStats.defense}</span>
+                  {leftStats.isCustomized && <span style={{ color: 'gold' }}>✨ Custom</span>}
                 </div>
               </div>
 
-              {/* VS */}
-              <div style={{ fontSize: '3rem', fontWeight: 800, color: 'var(--text-muted)' }}>VS</div>
+              <div style={{ fontSize: '2.5rem', fontWeight: 800, color: 'var(--text-muted)', textAlign: 'center' }}>VS</div>
 
-              {/* Right Fighter */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', alignItems: 'center' }}>
-                <div style={{ fontSize: '1.2rem', fontWeight: 700, color: rightStats.color }}>{rightStats.name}</div>
-                <div style={{ width: '200px', height: '200px', background: 'rgba(0,0,0,0.5)', borderRadius: '16px', overflow: 'hidden', border: `4px solid ${rightStats.color}`, transform: 'scaleX(-1)' }}>
-                  <img src={rightStats.imageUrl} style={{ width: '100%', height: '100%', objectFit: 'cover', imageRendering: 'pixelated', filter: rightStats.health <= 0 ? 'grayscale(100%)' : 'none' }} />
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', textAlign: 'right' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8rem', fontWeight: 600 }}>
+                  <span>{rightStats.health} / {rightStats.maxHealth}</span><span>HP</span>
                 </div>
-                <div style={{ width: '100%', maxWidth: '200px' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8rem', marginBottom: '4px', fontWeight: 600 }}>
-                    <span>HP</span><span>{rightStats.health} / {rightStats.maxHealth}</span>
-                  </div>
-                  <div style={{ height: '12px', background: 'rgba(255,255,255,0.1)', borderRadius: '999px', overflow: 'hidden' }}>
-                    <div style={{ height: '100%', background: '#10b981', width: `${Math.max(0, (rightStats.health / rightStats.maxHealth) * 100)}%`, transition: 'width 0.3s ease' }} />
-                  </div>
+                <div style={{ height: '10px', background: 'rgba(255,255,255,0.1)', borderRadius: 999, overflow: 'hidden' }}>
+                  <div style={{ height: '100%', background: rightStats.health / rightStats.maxHealth < 0.25 ? '#ef4444' : '#10b981', width: `${Math.max(0, (rightStats.health / rightStats.maxHealth) * 100)}%`, transition: 'width 0.3s ease', marginLeft: 'auto' }} />
                 </div>
-                <div style={{ display: 'flex', gap: '12px', fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-                  <span>🗡️ ATK: {rightStats.attack}</span>
-                  <span>🛡️ DEF: {rightStats.defense}</span>
+                <div style={{ display: 'flex', gap: '12px', fontSize: '0.78rem', color: 'var(--text-muted)', justifyContent: 'flex-end' }}>
+                  {rightStats.isCustomized && <span style={{ color: 'gold' }}>✨ Custom</span>}
+                  <span>🛡️ {rightStats.defense}</span><span>🗡️ {rightStats.attack}</span>
                 </div>
               </div>
-
             </div>
           </div>
 
-          {/* Logs */}
-          <div className="glass-card" style={{ padding: '24px', minHeight: '200px', maxHeight: '400px', overflowY: 'auto' }}>
+          {/* Battle log */}
+          <div className="glass-card" style={{ padding: '24px', minHeight: '200px', maxHeight: '360px', overflowY: 'auto' }}>
             <h3 style={{ marginBottom: '16px', fontSize: '1.1rem' }}>Battle Log</h3>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
               {logs.map((log, i) => (
                 <div key={i} style={{
-                  padding: '8px 12px', borderRadius: '8px',
+                  padding: '7px 12px', borderRadius: '8px',
                   background: log.attacker === 'left' ? `${leftStats.color}15` : `${rightStats.color}15`,
                   borderLeft: `4px solid ${log.attacker === 'left' ? leftStats.color : rightStats.color}`,
-                  animation: 'fadeIn 0.3s ease'
+                  animation: 'fadeIn 0.3s ease',
                 }}>
                   <span style={{ fontWeight: 700, marginRight: '8px', opacity: 0.7 }}>R{log.round}</span>
                   {log.message}
@@ -297,13 +317,24 @@ export default function BattlePage() {
 
           {winner && (
             <div style={{ textAlign: 'center', marginTop: '24px' }}>
-              <button className="btn btn-ghost" onClick={resetBattle}>
-                Fight Again
-              </button>
+              <button className="btn btn-ghost" onClick={resetBattle}>Fight Again</button>
             </div>
           )}
         </div>
       )}
+
+      {/* Winner bomb modal */}
+      <GameModal isOpen={showBomb} onClose={() => setShowBomb(false)}>
+        <div style={{ textAlign: 'center' }}>
+          <div style={{ fontSize: '3rem', marginBottom: '8px' }}>🧨</div>
+          <h2 style={{ fontSize: '1.6rem', fontWeight: 800, marginBottom: '8px' }}>
+            {winner === 'left' ? leftStats?.name : rightStats?.name} won!
+          </h2>
+          <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem' }}>
+            The battle is over. Click close to see the results.
+          </p>
+        </div>
+      </GameModal>
     </div>
   );
 }
